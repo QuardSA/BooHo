@@ -1,0 +1,17 @@
+/*Header*/
+
+.icon-excel{
+    background-image: url('/img/User_cicrle_black.svg');
+    padding-left: 36px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-repeat: no-repeat;
+}
+
+.buttoms_auth_reg a{
+    text-decoration: none;
+    color: black;
+}
+
+/*Footer*/
+
