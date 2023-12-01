@@ -1,3 +1,4 @@
+
 /*Header*/
 
 .icon-excel{
@@ -13,5 +14,45 @@
     color: black;
 }
 
-/*Footer*/
+/* index */
 
+/* Поиск */
+
+.search{
+    width: 80%;
+    height: 4rem;
+    background-color: #FFBA00;
+    border-radius: 15px;
+}
+
+/* Главная инфа */
+
+.country img{
+    border-radius: 15px;
+    width: 39rem;
+    height: 20rem;
+}
+
+.country-name{
+    top: 0.5rem;
+    left: 1rem;
+}
+
+.country-small img{
+    border-radius: 15px;
+    width: 16rem;
+    height: 15rem;
+}
+
+.country-small-name{
+    top: 0.5rem;
+    left: 1rem;
+}
+
+.location{
+    font-size: 11px;
+}
+
+.card-body p{
+    margin: 0 !important;
+}

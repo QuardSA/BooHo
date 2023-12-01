@@ -1,6 +1,7 @@
-<footer class=" pt-5">
-    <div class="container px-3">
-        <div class="row">
+
+    <div class="container mt-5">
+        <hr>
+        <div class="row pt-3">
             <div class="col-4 col-lg-3">
                 <a class="navbar-brand" href="#"><img src="/img/LOGO.svg" alt=""></a>
             </div>
@@ -31,7 +32,6 @@
         </div>
         <hr>
         <div class="d-sm-flex justify-content-between py-1">
-            <p>2023 © Coding Yaar. All Rights Reserved. </p>
+            <p>2023 © BooHo. All Rights Reserved. </p>
         </div>
     </div>
-</footer>
