@@ -7,7 +7,7 @@
 	<x-link></x-link>
 </head>
 <body>
-	<x-headerindex></x-headerindex>
+	<x-header></x-header>
 	<main>
 		<div class="container">
 			<h1 class="mt-5">Найдите жильё для новой поездки</h1>
