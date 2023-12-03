@@ -25,6 +25,12 @@
     border-radius: 15px;
 }
 
+.search-form input{
+    width:19rem;
+    height: 3.6rem;
+    border-radius: 15px;
+}
+
 /* Главная инфа */
 
 .country img{
@@ -81,4 +87,49 @@
     border-radius: 5px;
     border: none;
     background: #133AAC;
+}
+
+/*Персональные данные*/
+
+.personal-settings {
+    width:19rem;
+    max-height:32rem;
+}
+
+.personal-info{
+    width:75%;
+}
+.table th{
+    max-width:3rem ;
+}
+.table td{
+    padding: 1rem 0;
+}
+/*Безопасность*/
+
+/*Моя Бронь*/
+
+.personal-booking-info{
+    width:80%;
+}
+
+.truncate{
+    margin: 0; /* Убираем внешний отступ */
+    -webkit-line-clamp: 6; /* Число отображаемых строк */
+    display: -webkit-box; /* Включаем флексбоксы */
+    -webkit-box-orient: vertical; /* Вертикальная ориентация */
+    overflow: hidden; /*Обрезаем всё за пределами блока */
+}
+
+.view-information{
+    right: 0.5rem;
+    bottom: 0.5rem;
+}
+/*Мои объекты*/
+.truncate2{
+    margin: 0; /* Убираем внешний отступ */
+    -webkit-line-clamp: 3; /* Число отображаемых строк */
+    display: -webkit-box; /* Включаем флексбоксы */
+    -webkit-box-orient: vertical; /* Вертикальная ориентация */
+    overflow: hidden; /*Обрезаем всё за пределами блока */
 }

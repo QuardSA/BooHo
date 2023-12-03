@@ -8,25 +8,23 @@
             <div class="col">
                 <h4>Клиентам</h4>
                 <ul class="list-unstyled pt-2">
-                    <li class="py-1">Каталог гостиниц</li>
-                    <li class="py-1">Каталог Домов</li>
-                    <li class="py-1">Разместить своё объявление</li>
-                    <li class="py-1"></li>
+                    <li class="py-1"><a href="" class="text-decoration-none text-black">Каталог гостиниц</a></li>
+                    <li class="py-1"><a href="" class="text-decoration-none text-black">Каталог Домов</a></li>
+                    <li class="py-1"><a href="" class="text-decoration-none text-black">Разместить своё объявление</a></li>
                 </ul>
             </div>
             <div class="col">
                 <h4>Компания</h4>
                 <ul class="list-unstyled pt-2">
-                    <li class="py-1">О компании</li>
-                    <li class="py-1"></li>
+                    <li class="py-1"><a href="" class="text-decoration-none text-black">О компании</a></li>
                 </ul>
             </div>
             <div class="col-6 col-lg-3 text-lg-end">
                 <h4>Социальные сети</h4>
-                <div class="social-media pt-2">
-                    <a href="#" class="text-light fs-2 me-3"><img src="/img/" alt=""></a>
-                    <a href="#" class="text-light fs-2 me-3"><img src="/img/" alt=""></a>
-                    <a href="#" class="text-light fs-2 me-3"><img src="/img/" alt=""></a>
+                <div class="social-media">
+                    <a href="#" class="fs-5 me-3"><img src="/img/Telegram.svg" alt=""></a>
+                    <a href="#" class="fs-5 me-3"><img src="/img/VK.svg" alt=""></a>
+                    <a href="#" class="fs-5"><img src="/img/OK.svg" alt=""></a>
                 </div>
             </div>
         </div>

@@ -22,3 +22,15 @@ Route::get('/authorization', function () {
 Route::get('/registration', function () {
     return view('registration');
 });
+Route::get('personal-data', function () {
+    return view('personal-data');
+});
+Route::get('personal-booking', function () {
+    return view('personal-booking');
+});
+Route::get('personal-objects', function () {
+    return view('personal-objects');
+});
+Route::get('personal-security', function () {
+    return view('personal-security');
+});

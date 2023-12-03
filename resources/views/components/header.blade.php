@@ -18,17 +18,17 @@
             <a href="/registration" class="">Регистрация</a>
             <a href="/authorization" class="ms-2">Авторизация</a>
           </div>    
-    <!--         <div class="nav-item dropdown">
+            <div class="nav-item dropdown">
                 <button class="nav-link" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="icon-excel"></i>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Действие</a></li>
-                    <li><a class="dropdown-item" href="#">Другое действие</a></li>
+                    <li><a class="dropdown-item" href="/personal-data">Настройки</a></li>
+                    <li><a class="dropdown-item" href="/admin">Админ</a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Что-то еще здесь</a></li>
+                    <li><a class="dropdown-item" href="#">Выйти из аккаунта</a></li>
                 </ul>
-            </div> -->
+            </div>
         </div>
       </div>
     </nav>
