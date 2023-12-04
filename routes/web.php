@@ -34,3 +34,15 @@ Route::get('personal-objects', function () {
 Route::get('personal-security', function () {
     return view('personal-security');
 });
+Route::get('personal-security', function () {
+    return view('personal-security');
+});
+Route::get('admin', function () {
+    return view('admin.index');
+});
+Route::get('admin/moderator-create', function () {
+    return view('admin.moderator-create');
+});
+Route::get('admin/moderator-edit', function () {
+    return view('admin.moderator-edit');
+});

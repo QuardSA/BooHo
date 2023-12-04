@@ -92,18 +92,21 @@
 /*Персональные данные*/
 
 .personal-settings {
-    width:19rem;
-    max-height:32rem;
+    max-height: 24rem;
+    min-width:19rem;
+    max-width:24rem;
 }
 
 .personal-info{
     width:75%;
 }
 .table th{
+    vertical-align: middle;
     max-width:3rem ;
 }
 .table td{
-    padding: 1rem 0;
+    vertical-align: middle;
+    padding: 1rem 0.5rem;
 }
 /*Безопасность*/
 
