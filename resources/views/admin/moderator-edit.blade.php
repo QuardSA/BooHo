@@ -11,11 +11,11 @@
     <x-header></x-header>
     <div class="container mt-5 d-flex">
         <div class="personal-settings rounded-1 d-flex flex-column border py-3 px-4 ">
-            <a href="/personal-data" class="text-decoration-none text-black"><img src="/img/Orders.svg" alt="" class="me-2">Запросы</a>
+            <a href="/admin/ordersNew" class="text-decoration-none text-black"><img src="/img/Orders.svg" alt="" class="me-2">Запросы</a>
             <hr>
-            <a href="/personal-security" class="text-decoration-none text-black"><img src="/img/Deny.svg" alt="" class="me-2">Отклонено</a>
+            <a href="/admin/ordersDeny" class="text-decoration-none text-black"><img src="/img/Deny.svg" alt="" class="me-2">Отклонено</a>
             <hr>
-            <a href="/personal-booking" class="text-decoration-none text-black"><img src="/img/Accept.svg" alt="" class="me-2">Принято</a>
+            <a href="/admin/ordersAcces" class="text-decoration-none text-black"><img src="/img/Accept.svg" alt="" class="me-2">Принято</a>
             <hr>
             <a href="/admin/moderator-create" class="text-decoration-none text-black"><img src="/img/Add_moderator.svg" alt="" class="me-2">Добавить модератора</a>
             <hr>
@@ -27,14 +27,14 @@
         <div class="personal-info ms-4">
             <div class="form mx-auto text-center" style="width:29rem">        
                 <form action="" class="d-flex flex-column gap-3" >
-                    <h3 class="fw-bold">Добавить модератора</h3>
+                    <h3 class="fw-bold">Редактировать модератора</h3>
                     <input type="text" placeholder="Имя" name="">
                     <input type="text" placeholder="Фамилия" name="">
                     <input type="email" placeholder="Введите адрес электронной почты" name="">
                     <input type="date" placeholder="" name="">
                     <input type="password" placeholder="Введите пароль" name="">
                     <input type="password" placeholder="Повторите пароль" name="">
-                    <button type="submit" class="text-white">Войти</button>
+                    <button type="submit" class="text-white">Редактировать</button>
                 </form>
             </div>
         </div>

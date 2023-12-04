@@ -11,11 +11,11 @@
     <x-header></x-header>
     <div class="container mt-5 d-flex">
         <div class="personal-settings rounded-1 d-flex flex-column border py-3 px-4 ">
-            <a href="/personal-data" class="text-decoration-none text-black"><img src="/img/Orders.svg" alt="" class="me-2">Запросы</a>
+            <a href="/admin/ordersNew" class="text-decoration-none text-black"><img src="/img/Orders.svg" alt="" class="me-2">Запросы</a>
             <hr>
-            <a href="/personal-security" class="text-decoration-none text-black"><img src="/img/Deny.svg" alt="" class="me-2">Отклонено</a>
+            <a href="/admin/ordersDeny" class="text-decoration-none text-black"><img src="/img/Deny.svg" alt="" class="me-2">Отклонено</a>
             <hr>
-            <a href="/personal-booking" class="text-decoration-none text-black"><img src="/img/Accept.svg" alt="" class="me-2">Принято</a>
+            <a href="/admin/ordersAcces" class="text-decoration-none text-black"><img src="/img/Accept.svg" alt="" class="me-2">Принято</a>
             <hr>
             <a href="/admin/moderator-create" class="text-decoration-none text-black"><img src="/img/Add_moderator.svg" alt="" class="me-2">Добавить модератора</a>
             <hr>
@@ -34,11 +34,8 @@
                 <input type="date" placeholder="" name="">
                 <input type="password" placeholder="Введите пароль" name="">
                 <input type="password" placeholder="Повторите пароль" name="">
-                <button type="submit" class="text-white">Войти</button>
+                <button type="submit" class="text-white">Создать</button>
             </form>
-            <hr>
-            <p>Входя в аккаунт или создавая новый, вы соглашаетесь с нашими</p>
-            <p><a href="">Правилами и условиями</a> и <a href="">Положением о конфиденциальности</a></p>
         </div>
         </div>
     </div>

@@ -8,8 +8,8 @@
             <div class="col">
                 <h4>Клиентам</h4>
                 <ul class="list-unstyled pt-2">
-                    <li class="py-1"><a href="" class="text-decoration-none text-black">Каталог гостиниц</a></li>
-                    <li class="py-1"><a href="" class="text-decoration-none text-black">Каталог Домов</a></li>
+                    <li class="py-1"><a href="/catalog" class="text-decoration-none text-black">Каталог гостиниц</a></li>
+                    <li class="py-1"><a href="/catalog" class="text-decoration-none text-black">Каталог Домов</a></li>
                     <li class="py-1"><a href="" class="text-decoration-none text-black">Разместить своё объявление</a></li>
                 </ul>
             </div>

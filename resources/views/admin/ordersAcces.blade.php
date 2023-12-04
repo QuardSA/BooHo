@@ -25,7 +25,7 @@
         <hr>
       </div>
         <div class="personal-info ms-4">
-            <h2>Все модераторы</h2>
+            <h2>Принятые заявки</h2>
             <table class="table table-bordered align-middle">
               <thead>
                 <tr>
@@ -33,9 +33,8 @@
                   <th scope="col">Имя</th>
                   <th scope="col">Фамлия</th>
                   <th scope="col">e-mail</th>
-                  <th scope="col">Дата рождения</th>
-                  <th scope="col"></th>
-                  <th scope="col"></th>
+                  <th scope="col">Объект</th>
+                  <th scope="col">Статус заявки</th>
                 </tr>
               </thead>
               <tbody>
@@ -44,9 +43,8 @@
                   <td>Иван</td>
                   <td>Иванов</td>
                   <td>alexwd@mail.ru</td>
-                  <td>21.02.1997</td>
-                  <td class="fw-bold "><a href="/admin/moderator-edit" class="text-success text-decoration-none">Редактировать</a></td>
-                  <td class="text-danger fw-bold">Удалить</td>
+                  <td><a href="" class="text-decoration-none">Blue Gilroy Hotel</a></td>
+                  <td class="text-success fw-bold">Принято</td>
                 </tr>
               </tbody>
             </table>

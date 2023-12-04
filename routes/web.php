@@ -46,3 +46,18 @@ Route::get('admin/moderator-create', function () {
 Route::get('admin/moderator-edit', function () {
     return view('admin.moderator-edit');
 });
+Route::get('admin/ordersAcces', function () {
+    return view('admin.ordersAcces');
+});
+Route::get('admin/ordersDeny', function () {
+    return view('admin.ordersDeny');
+});
+Route::get('admin/ordersNew', function () {
+    return view('admin.ordersNew');
+});
+Route::get('hotelcard', function () {
+    return view('hotelcard');
+});
+Route::get('catalog', function () {
+    return view('catalog');
+});

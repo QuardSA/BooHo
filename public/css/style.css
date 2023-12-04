@@ -136,3 +136,27 @@
     -webkit-box-orient: vertical; /* Вертикальная ориентация */
     overflow: hidden; /*Обрезаем всё за пределами блока */
 }
+
+/* Каталог */
+.filter-settings {
+    max-height: 15rem;
+    min-width:19rem;
+    max-width:24rem;
+}
+
+.hotel-card{
+    max-width: 100%;
+    max-height: auto;
+}
+
+.truncate3{
+    margin: 0; /* Убираем внешний отступ */
+    -webkit-line-clamp: 5; /* Число отображаемых строк */
+    display: -webkit-box; /* Включаем флексбоксы */
+    -webkit-box-orient: vertical; /* Вертикальная ориентация */
+    overflow: hidden; /*Обрезаем всё за пределами блока */
+}
+
+.cost{
+    margin-top: 6.3rem;
+}
