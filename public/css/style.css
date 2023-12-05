@@ -1,7 +1,6 @@
-
 /*Header*/
 
-.icon-excel{
+.icon-excel {
     background-image: url('/img/User_cicrle_black.svg');
     padding-left: 36px;
     padding-top: 10px;
@@ -9,7 +8,7 @@
     background-repeat: no-repeat;
 }
 
-.buttoms_auth_reg a{
+.buttoms_auth_reg a {
     text-decoration: none;
     color: black;
 }
@@ -18,70 +17,70 @@
 
 /* Поиск */
 
-.search{
+.search {
     width: 80%;
     height: 4rem;
     background-color: #FFBA00;
     border-radius: 15px;
 }
 
-.search-form input{
-    width:19rem;
+.search-form input {
+    width: 19rem;
     height: 3.6rem;
     border-radius: 15px;
 }
 
 /* Главная инфа */
 
-.country img{
+.country img {
     border-radius: 15px;
     width: 39rem;
     height: 20rem;
 }
 
-.country-name{
+.country-name {
     top: 0.5rem;
     left: 1rem;
 }
 
-.country-small img{
+.country-small img {
     border-radius: 15px;
     width: 16rem;
     height: 15rem;
 }
 
-.country-small-name{
+.country-small-name {
     top: 0.5rem;
     left: 1rem;
 }
 
-.location{
+.location {
     font-size: 11px;
 }
 
-.card-body p{
+.card-body p {
     margin: 0 !important;
 }
 
 /* Регистрация и Авторизация */
 
-.form input{
+.form input {
     height: 3rem;
     border-radius: 15px;
     border: 1px solid #000;
-    background: #FFF; 
+    background: #FFF;
 }
 
-.form input::placeholder{
-    margin-left:20px ;
+.form input::placeholder {
+    margin-left: 20px;
 }
 
-.form p{
+.form p {
     margin: 0 !important;
     font-size: 14px !important;
 }
 
-.form button{
+.form button {
     width: 100%;
     height: 3rem;
     border-radius: 5px;
@@ -93,70 +92,96 @@
 
 .personal-settings {
     max-height: 24rem;
-    min-width:19rem;
-    max-width:24rem;
+    min-width: 19rem;
+    max-width: 24rem;
 }
 
-.personal-info{
-    width:75%;
+.personal-info {
+    width: 75%;
 }
-.table th{
+
+.table th {
     vertical-align: middle;
-    max-width:3rem ;
+    max-width: 3rem;
 }
-.table td{
+
+.table td {
     vertical-align: middle;
     padding: 1rem 0.5rem;
 }
+
 /*Безопасность*/
 
 /*Моя Бронь*/
 
-.personal-booking-info{
-    width:80%;
+.personal-booking-info {
+    width: 80%;
 }
 
-.truncate{
-    margin: 0; /* Убираем внешний отступ */
-    -webkit-line-clamp: 6; /* Число отображаемых строк */
-    display: -webkit-box; /* Включаем флексбоксы */
-    -webkit-box-orient: vertical; /* Вертикальная ориентация */
-    overflow: hidden; /*Обрезаем всё за пределами блока */
+.truncate {
+    margin: 0;
+    /* Убираем внешний отступ */
+    -webkit-line-clamp: 6;
+    /* Число отображаемых строк */
+    display: -webkit-box;
+    /* Включаем флексбоксы */
+    -webkit-box-orient: vertical;
+    /* Вертикальная ориентация */
+    overflow: hidden;
+    /*Обрезаем всё за пределами блока */
 }
 
-.view-information{
+.view-information {
     right: 0.5rem;
     bottom: 0.5rem;
 }
+
 /*Мои объекты*/
-.truncate2{
-    margin: 0; /* Убираем внешний отступ */
-    -webkit-line-clamp: 3; /* Число отображаемых строк */
-    display: -webkit-box; /* Включаем флексбоксы */
-    -webkit-box-orient: vertical; /* Вертикальная ориентация */
-    overflow: hidden; /*Обрезаем всё за пределами блока */
+.truncate2 {
+    margin: 0;
+    /* Убираем внешний отступ */
+    -webkit-line-clamp: 3;
+    /* Число отображаемых строк */
+    display: -webkit-box;
+    /* Включаем флексбоксы */
+    -webkit-box-orient: vertical;
+    /* Вертикальная ориентация */
+    overflow: hidden;
+    /*Обрезаем всё за пределами блока */
 }
 
 /* Каталог */
 .filter-settings {
     max-height: 15rem;
-    min-width:19rem;
-    max-width:24rem;
+    min-width: 19rem;
+    max-width: 24rem;
 }
 
-.hotel-card{
+.hotel-card {
     max-width: 100%;
     max-height: auto;
 }
 
-.truncate3{
-    margin: 0; /* Убираем внешний отступ */
-    -webkit-line-clamp: 5; /* Число отображаемых строк */
-    display: -webkit-box; /* Включаем флексбоксы */
-    -webkit-box-orient: vertical; /* Вертикальная ориентация */
-    overflow: hidden; /*Обрезаем всё за пределами блока */
+.truncate3 {
+    margin: 0;
+    /* Убираем внешний отступ */
+    -webkit-line-clamp: 5;
+    /* Число отображаемых строк */
+    display: -webkit-box;
+    /* Включаем флексбоксы */
+    -webkit-box-orient: vertical;
+    /* Вертикальная ориентация */
+    overflow: hidden;
+    /*Обрезаем всё за пределами блока */
 }
 
-.cost{
+.cost {
     margin-top: 6.3rem;
+}
+
+/* Страница Отеля */
+
+.services-amenities__item {
+    display: inline-block;
+    width: 50%;
 }
