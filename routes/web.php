@@ -61,3 +61,6 @@ Route::get('hotelcard', function () {
 Route::get('catalog', function () {
     return view('catalog');
 });
+Route::get('create-card', function () {
+    return view('create-card');
+});

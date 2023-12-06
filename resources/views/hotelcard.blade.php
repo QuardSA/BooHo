@@ -12,7 +12,27 @@
     <x-header></x-header>
     <div class="container mt-3">
         <div class="slider-container">
-
+            <div id="carouselExampleFade" class="carousel slide carousel-fade">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="/img/appartaments.webp" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/img/appartaments.webp" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/img/appartaments.webp" class="d-block w-100" alt="...">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Предыдущий</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Следующий</span>
+                </button>
+              </div>
         </div>
         <div class="info-hotel-card d-flex">
             <div class="info" style="max-width: 65%;">
@@ -90,6 +110,33 @@
                         <p>С 00:00 до 12:00</p>
                     </div>
                 </div>
+                <div class="room">
+                    <h3 class="text-dark fw-semibold"> Наличие мест:</h3>
+                    <div class="room-body">
+                        <div class="card mb-3" style="max-width: 100%;">
+                            <div class="row g-0">
+                                <div class="col-md-3">
+                                    <img src="/img/appartaments.webp" class="img-fluid rounded-start" alt="...">
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="card-body">
+                                        <h3 class="card-title fw-semibold">Супериор DBL</h5>
+                                        <p class="card-text fs-5">
+                                            кол-во людей:2
+                                        </p>
+                                        <p class="card-text fs-5">
+                                            Удобства: WiFi, Бесплатный обед
+                                        </p>
+                                        <p class="card-text fs-semibold fs-4 text-end">
+                                            22000р
+                                        </p>
+                                        <p class="text-end"><a href="" class="btn btn-secondary">Выбрать номер</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="main-info-hotel border ms-4 shadow p-3 mb-5 bg-body-tertiary rounded"
                 style="max-height: 10rem; width:30%;">
@@ -102,5 +149,4 @@
     <x-footer></x-footer>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </body>
-
 </html>

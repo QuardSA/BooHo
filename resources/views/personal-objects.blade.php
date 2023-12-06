@@ -42,7 +42,7 @@
 				  </div>
 				</div>
 			</div>
-			<p class="text-center mt-4"><a href="" class="btn btn-secondary">Добавить объект</a></p>
+			<p class="text-center mt-4"><a href="create-card" class="btn btn-secondary">Добавить объект</a></p>
 		</div>
 	</div>
 </body>

@@ -1,7 +1,7 @@
 
     <div class="container mt-5">
         <hr>
-        <div class="row pt-3">
+        <div class="row pt-3 d-flex flex-row">
             <div class="col-4 col-lg-3">
                 <a class="navbar-brand" href="#"><img src="/img/LOGO.svg" alt=""></a>
             </div>
