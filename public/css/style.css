@@ -153,14 +153,18 @@
 
 /* Каталог */
 .filter-settings {
-    max-height: 15rem;
-    min-width: 19rem;
-    max-width: 24rem;
+    max-height: 34rem;
+    min-width: 15rem;
 }
 
 .hotel-card {
     max-width: 100%;
     max-height: auto;
+}
+
+.filter-position{
+    max-width: 12rem;
+    padding-left:1rem ;
 }
 
 .truncate3 {

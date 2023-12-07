@@ -34,11 +34,11 @@
                 </form>
             </div>
             {{-- Основной блок --}}
-            <div class="info">
+            <div class="info ">
                 <h3 class="mt-4">Популярные направления</h2>
                     <div class="mt-3 d-flex gap-5 flex-wrap justify-content-center">
                         <div class="country position-relative">
-                            <a href="">
+                            <a href="/catalog">
                                 <img src="/img/France.webp" alt="">
                                 <div class="country-name fs-5 position-absolute text-white fw-bold">Франция</div>
                             </a>
@@ -86,8 +86,8 @@
                     </div>
                     <h3 class="mt-4">Дома которые точно понравятся</h2>
                         <div class="mt-3 d-flex gap-4 flex-wrap justify-content-center">
-                            <div class="card" style="width: 18rem; height:22rem rounded-3">
-                                <a href="" class="text-decoration-none text-black">
+                            <div class="card shadow p-3  bg-body rounded" style="width: 18rem; height:22rem">
+                                <a href="/hotelcard" class="text-decoration-none text-black">
                                     <img src="/img/appartaments.webp" class="card-img-top" style=" height:12rem"
                                         alt="">
                                     <div class="card-body">
@@ -99,8 +99,8 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="card" style="width: 18rem; height:22rem rounded-3">
-                                <a href="" class="text-decoration-none text-black">
+                            <div class="card shadow p-3  bg-body rounded" style="width: 18rem; height:22rem">
+                                <a href="/hotelcard" class="text-decoration-none text-black">
                                     <img src="/img/appartaments.webp" class="card-img-top" style=" height:12rem"
                                         alt="">
                                     <div class="card-body">
@@ -112,8 +112,8 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="card" style="width: 18rem; height:22rem rounded-3">
-                                <a href="" class="text-decoration-none text-black">
+                            <div class="card shadow p-3  bg-body rounded" style="width: 18rem; height:22rem">
+                                <a href="/hotelcard" class="text-decoration-none text-black">
                                     <img src="/img/appartaments.webp" class="card-img-top" style=" height:12rem"
                                         alt="">
                                     <div class="card-body">
@@ -125,8 +125,8 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="card" style="width: 18rem; height:22rem rounded-3">
-                                <a href="" class="text-decoration-none text-black">
+                            <div class="card shadow p-3  bg-body rounded" style="width: 18rem; height:22rem">
+                                <a href="/hotelcard" class="text-decoration-none text-black">
                                     <img src="/img/appartaments.webp" class="card-img-top" style=" height:12rem"
                                         alt="">
                                     <div class="card-body">

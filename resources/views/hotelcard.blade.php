@@ -34,7 +34,7 @@
                 </button>
               </div>
         </div>
-        <div class="info-hotel-card d-flex">
+        <div class="info-hotel-card d-flex position-relative">
             <div class="info" style="max-width: 65%;">
                 <p class="description">
                     Оригинальная и очень самобытная гостиница “Поляна 1389 Отель и Спа” открылась на высокогорном плато
