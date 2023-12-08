@@ -15,28 +15,24 @@
             <h1 class="mt-5">Найдите жильё для новой поездки</h1>
             <h2 class="">Ищите предложения на отели и дома</h2>
             {{-- Поиск --}}
-            <div class="search mx-auto mt-5 d-flex">
-                <form action="" class="search-form d-flex flex-wrap align-items-center gap-1 mx-1">
-                    <div class="search-form">
-                        <input type="text">
+            <div class="search mx-auto mt-5 d-flex justify-content-center">
+                <form action="" class="search-form d-flex flex-wrap align-items-center justify-content-center gap-1 mx-1">
+                    <div class="search-for">
+                        <input type="text" placeholder="Город">
                     </div>
                     <div class="date-form">
                         <input type="date">
                     </div>
                     <div class="search-form">
-                        <input type="text">
+                        <input type="text" placeholder="Количество людей">
                     </div>
-                    <button type="button" class="btn btn-primary py-2 px-2 fs-3">Найти</button>
-
-                    <!-- 					<div class="duration-form">
-      <button type="button"></button>
-     </div>	 -->
+                    <button type="button" class="btn btn-primary py-1 my-1 px-2 fs-3">Найти</button>
                 </form>
             </div>
             {{-- Основной блок --}}
             <div class="info ">
                 <h3 class="mt-4">Популярные направления</h2>
-                    <div class="mt-3 d-flex gap-5 flex-wrap justify-content-center">
+                    <div class="test mt-3 d-flex gap-2 flex-wrap justify-content-center">
                         <div class="country position-relative">
                             <a href="/catalog">
                                 <img src="/img/France.webp" alt="">
