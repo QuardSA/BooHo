@@ -8,8 +8,8 @@
 </head>
 <body>
 	<x-header></x-header>
-	<div class="container d-flex mt-5">
-		<div class="personal-settings rounded-1 d-flex flex-column border py-3 px-4 ">
+	<div class="container d-flex mt-5 flex-wrap">
+		<div class="personal-settings rounded-1 d-flex flex-column border py-3 px-4 mb-3">
 			<a href="/personal-data" class="text-decoration-none text-black"><img src="/img/personal-data.svg" alt="" class="me-2">Персональные данные</a>
 			<hr>
 			<a href="/personal-security" class="text-decoration-none text-black"><img src="/img/personal-security.svg" alt="" class="me-2">Безопаснсть</a>
@@ -50,5 +50,6 @@
 			</table>
 		</div>
 	</div>
+	<x-footer></x-footer>
 </body>
 </html>

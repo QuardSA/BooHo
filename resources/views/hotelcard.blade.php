@@ -136,6 +136,30 @@
                             </div>
                         </div>
                     </div>
+                    <div class="room-body">
+                        <div class="card mb-3" style="max-width: 100%;">
+                            <div class="row g-0">
+                                <div class="col-md-3">
+                                    <img src="/img/appartaments.webp" class="img-fluid rounded-start" alt="...">
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="card-body">
+                                        <h3 class="card-title fw-semibold">Супериор DBL</h5>
+                                        <p class="card-text fs-5">
+                                            кол-во людей:2
+                                        </p>
+                                        <p class="card-text fs-5">
+                                            Удобства: WiFi, Бесплатный обед
+                                        </p>
+                                        <p class="card-text fs-semibold fs-4 text-end">
+                                            22000р
+                                        </p>
+                                        <p class="text-end"><a href="" class="btn btn-secondary">Выбрать номер</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="main-info-hotel border ms-4 shadow p-3 mb-5 bg-body-tertiary rounded"

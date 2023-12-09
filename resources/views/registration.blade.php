@@ -10,7 +10,7 @@
 <body>
     <x-header></x-header>
     <div class="container mt-5">
-        <div class="form mx-auto text-center" style="width:29rem">        
+        <div class="form mx-auto text-center">        
             <form action="" class="d-flex flex-column gap-3" >
                 <h3 class="fw-bold">Создать аккаунт</h3>
                 <input type="email" placeholder="Введите свой адрес электронной почты" name="">

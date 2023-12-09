@@ -49,7 +49,7 @@
 }
 
 .country {
-    width: 45%;
+    width: 42%;
 }
 
 
@@ -66,7 +66,7 @@
 
 .country-small img {
     border-radius: 15px;
-    width: 16rem;
+    width: 100%;
     height: 15rem;
 }
 
@@ -84,6 +84,9 @@
 }
 
 /* Регистрация и Авторизация */
+.form{
+    max-width:29rem;
+}
 
 .form input {
     height: 3rem;
@@ -225,11 +228,24 @@
 }
 
 
-@media (max-width: 767px) {
+@media (max-width: 800px) {
     .test {
         flex-direction: column;
     }
     .country {
         width: 100%;
+    }
+    .country-small img{
+        max-width: 100%;
+    }
+    .search{
+        max-width: 80%;
+    }
+    .services-amenities__body{
+        flex-direction: column;
+        width: 20rem;
+    }
+    .services-amenities__body ul{
+        width: 20rem;
     }
 }

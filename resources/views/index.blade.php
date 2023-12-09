@@ -46,15 +46,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="mt-3 d-flex gap-3 flex-wrap justify-content-center">
-                        <div class="country-small">
-                            <div class="country-small position-relative">
-                                <a href="">
-                                    <img src="/img/France.webp" alt="">
-                                    <div class="country-small-name position-absolute text-white fw-bold">Франция</div>
-                                </a>
-                            </div>
-                        </div>
+                    <div class="mt-3 d-flex gap-2 flex-wrap justify-content-center">
                         <div class="country-small">
                             <div class="country-small position-relative">
                                 <a href="">
