@@ -23,7 +23,7 @@
 			<a href="#" class="text-decoration-none text-black"><img src="/img/sign-out.svg" alt="" class="me-2">Выйти из аккаунта</a>
 			<hr>
 		</div>
-		<div class="personal-info ms-4">
+		<div class="personal-info ms-2">
 			<h2>Безопасность</h2>
 			<table class="table caption-top">
 				<caption>Сменить пароль</caption>

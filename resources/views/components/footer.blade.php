@@ -14,9 +14,9 @@
           <div class="col mb-3 ">
             <h5>Клиентам</h5>
             <ul class="nav flex-column">
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Каталог гостиниц</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Каталог Домов</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Разместить своё объявление</a></li>
+              <li class="nav-item mb-2"><a href="/catalog" class="nav-link p-0 text-muted">Каталог гостиниц</a></li>
+              <li class="nav-item mb-2"><a href="/catalog" class="nav-link p-0 text-muted">Каталог Домов</a></li>
+              <li class="nav-item mb-2"><a href="/create-card" class="nav-link p-0 text-muted">Разместить своё объявление</a></li>
             </ul>
           </div>
       

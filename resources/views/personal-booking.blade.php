@@ -23,7 +23,7 @@
 			<a href="#" class="text-decoration-none text-black"><img src="/img/sign-out.svg" alt="" class="me-2">Выйти из аккаунта</a>
 			<hr>
 		</div>
-		<div class="personal-info ms-4">
+		<div class="personal-info ms-2">
 			<h2>Моя бронь</h2>
 			<div class="all-personal-objects">
 				<div class="card mb-2" style="max-width: 40rem;">
