@@ -42,6 +42,17 @@
                     <input type="text" class="form-control" id="check-out" name="title_booking"
                         style="max-width: 20rem;">
                 </div>
+                <h4 class="mt-3">Укажите город и адресс</h4>
+                <div class="">
+                    <label for="city" class="form-label">Город</label>
+                    <input type="text" class="form-control" id="city" name="title_booking"
+                        style="max-width: 20rem;">
+                </div>
+                <div class="">
+                    <label for="adress" class="form-label">Адресс</label>
+                    <input type="text" class="form-control" id="adress" name="title_booking"
+                        style="max-width: 20rem;">
+                </div>
                 <h4 class="mt-3">Фотографии</h3>
                 <div class="mb-3">
                     <label for="fileupload" class="form-label">Выберите фотографии</label>

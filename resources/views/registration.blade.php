@@ -13,6 +13,9 @@
         <div class="form mx-auto text-center">        
             <form action="" class="d-flex flex-column gap-3" >
                 <h3 class="fw-bold">Создать аккаунт</h3>
+                <input type="text" placeholder="Введите своё Имя" name="">
+                <input type="text" placeholder="Введите свою Фамилию" name="">
+                <input type="text" placeholder="Введите свою Отчество" name="">
                 <input type="email" placeholder="Введите свой адрес электронной почты" name="">
                 <input type="password" placeholder="Введите пароль" name="">
                 <input type="password" placeholder="Подтверждение пароля" name="">
