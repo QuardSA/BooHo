@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -63,4 +64,11 @@ Route::get('catalog', function () {
 });
 Route::get('create-card', function () {
     return view('create-card');
+});
+
+// Route::post('create-card/add', function (Request $request) {
+//     dd($request);
+// });
+Route::get('redact-card', function () {
+    return view('redact-card');
 });

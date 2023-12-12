@@ -15,13 +15,17 @@
             <h1 class="mt-5">Найдите жильё для новой поездки</h1>
             <h2 class="">Ищите предложения на отели и дома</h2>
             {{-- Поиск --}}
+            @php
+                $curentDate = date('Y-m-d');
+            @endphp
             <div class="search mx-auto mt-5 d-flex justify-content-center">
-                <form action="" class="search-form d-flex flex-wrap align-items-center justify-content-center gap-1 mx-1">
+                <form action=""
+                    class="search-form d-flex flex-wrap align-items-center justify-content-center gap-1 mx-1">
                     <div class="search-for">
                         <input type="text" placeholder="Город">
                     </div>
                     <div class="date-form">
-                        <input type="date">
+                        <input type="date" min="{{ $curentDate }}">
                     </div>
                     <div class="search-form">
                         <input type="text" placeholder="Количество людей">
