@@ -15,34 +15,35 @@
             <form action="">
                 <div class="filter-position d-flex flex-column gap-1">
                     Цена за сутки
-                    <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btncheck1">До 15 000 р</label>
+                    <input type="checkbox" class="btn-check" id="До 15 000 р" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="До 15 000 р">До 15 000 р</label>
 
-                    <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btncheck2">15 000 - 50 000 р</label>
+                    <input type="checkbox" class="btn-check" id="15 000 - 50 000 р" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="15 000 - 50 000 р">15 000 - 50 000 р</label>
 
-                    <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btncheck3">от 50 000р</label>
+                    <input type="checkbox" class="btn-check" id="от 50 000р" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="от 50 000р">от 50 000р</label>
                 </div>
                 <hr>
                 <div class="filter-position d-flex flex-column gap-1">
                     Тип размещения
-                    <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btncheck3">OB</label>
-                    <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btncheck3">BB</label>
-                    <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btncheck3">HB</label>
-                    <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btncheck3">AI</label>
+                    <input type="checkbox" class="btn-check" id="OB" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="OB">OB</label>
+                    <input type="checkbox" class="btn-check" id="BB" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="BB">BB</label>
+                    <input type="checkbox" class="btn-check" id="HB" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="HB">HB</label>
+                    <input type="checkbox" class="btn-check" id="AI" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="AI">AI</label>
                 </div>
                 <hr>
                 <div class="filter-position d-flex flex-column gap-1">
                     Общие удобства
-                    <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btncheck3">Парковка</label>
-                    <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btncheck3">Ресепшен 24 часа</label>
+                    <input type="checkbox" class="btn-check" id="Парковка" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="Парковка">Парковка</label>
+                    <input type="checkbox" class="btn-check" id="Ресепшен 24 часа" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="Ресепшен 24 часа">Ресепшен 24 часа</label>
+                    
                 </div>
             </form>
         </div>
