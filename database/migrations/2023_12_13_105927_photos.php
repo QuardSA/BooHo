@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('photos', function (Blueprint $table) {
             $table->id();
             $table->string('File_photo');
-            $table->foreignid('Object')->references('id')->on('objects');
-        }); 
+            $table->foreignid('Object')->references('id')->on('type_objects');
+        });
     }
 
     /**

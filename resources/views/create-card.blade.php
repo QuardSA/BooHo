@@ -17,39 +17,47 @@
                 @csrf
                 <div class="mb-3">
                     <label for="Title-booking" class="form-label">Название</label>
-                    <input type="text" class="form-control" id="Title-booking" name="title_booking">
+                    <input type="text" class="form-control" id="Title-booking" name="Title_object">
                 </div>
                 <div class="mb-3">
                     <label for="description" class="form-label">Описание</label>
-                    <textarea class="form-control" id="description" rows="3" style="resize: none"></textarea>
+                    <textarea class="form-control" id="description" rows="3" style="resize: none" name="Description"></textarea>
+                </div>
+                <div class="mb-3">
+                    <select class="form-select" aria-label="Default select example" name="Category">
+                        <option selected>Категория</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
                 </div>
                 <h4>Услуги и удобства</h4>
                 <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="Service">
                     <label class="form-check-label" for="flexSwitchCheckDefault">Завтрак</label>
-                </div>
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
-                    <label class="form-check-label" for="flexSwitchCheckChecked">Парковка</label>
                 </div>
                 <h4 class="mt-3">Условия размещения</h4>
                 <div class="">
                     <label for="check-in" class="form-label">Заезд</label>
-                    <input type="text" class="form-control" id="check-in" name="check-in" style="max-width: 20rem;">
+                    <input type="text" class="form-control" id="check-in" name="Check_in" style="max-width: 20rem;">
                 </div>
                 <div class="">
                     <label for="check-out" class="form-label">Выезд</label>
-                    <input type="text" class="form-control" id="check-out" name="check-out"
+                    <input type="text" class="form-control" id="check-out" name="Check_out"
                         style="max-width: 20rem;">
                 </div>
-                <h4 class="mt-3">Укажите город и адресс</h4>
+                <h4 class="mt-3">Укажите город, страну и адресс</h4>
+                <div class="">
+                    <label for="Country" class="form-label">Страна</label>
+                    <input type="text" class="form-control" id="Country" name="Country" style="max-width: 20rem;">
+                </div>
                 <div class="">
                     <label for="city" class="form-label">Город</label>
-                    <input type="text" class="form-control" id="city" name="city" style="max-width: 20rem;">
+                    <input type="text" class="form-control" id="city" name="City" style="max-width: 20rem;">
                 </div>
                 <div class="">
                     <label for="adress" class="form-label">Адресс</label>
-                    <input type="text" class="form-control" id="adress" name="adress" style="max-width: 20rem;">
+                    <input type="text" class="form-control" id="adress" name="Address" style="max-width: 20rem;">
                 </div>
                 <h4 class="mt-3">Фотографии</h4>
                 <div class="mb-3">
@@ -62,18 +70,18 @@
                     <div class="apparteaments">
                         <h4 class="mt-3">Добавть аппартаменты</h4>
                         <label for="title" class="form-label">Название</label>
-                        <input type="text" class="form-control" id="title" name="title_appartaments[]"
+                        <input type="text" class="form-control" id="title" name="Title_apartaments[]"
                             style="max-width: 20rem;">
                         <label for="price" class="form-label">Цена</label>
-                        <input type="text" class="form-control" id="price" name="price_appartaments[]"
+                        <input type="text" class="form-control" id="price" name="Cost[]"
                             style="max-width: 20rem;">
                         <div class="mb-3">
                             <label for="fileupload" class="form-label">Выберите фотографию</label>
-                            <input class="form-control" type="file" id="fileupload" name="photo_apartaments[]"
+                            <input class="form-control" type="file" id="fileupload" name="Photo[]"
                                 style="max-width: 20rem">
                         </div>
                         <label for="peopleCount" class="form-label">Количество людей</label>
-                        <input type="number" class="form-control" id="peopleCount" name="count_people[]"
+                        <input type="number" class="form-control" id="peopleCount" name="Count_people[]"
                             style="max-width: 20rem;">
                     </div>
                 </div>

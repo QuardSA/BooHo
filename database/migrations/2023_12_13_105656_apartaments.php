@@ -36,16 +36,16 @@ return new class extends Migration
             $table->string('Count_people');
             $table->double('Cost');
             $table->string('Photo');
+            $table->foreignId('Object')->references('id')->on('type_objects');
             $table->timestamps();
         });
     }
 
     /**
-     
+
 Reverse the migrations.*/
-  public function down(): void
+    public function down(): void
     {
         Schema::dropIfExists('apartaments');
     }
-
 };

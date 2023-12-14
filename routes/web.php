@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthorizationController;
+use App\Http\Controllers\MainController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,10 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/authorization', function () {
-    return view('authorization');
-});
-Route::get('registration', [AuthorizationController::class, "registration"]);
+Route::get('authorization', [AuthorizationController::class, 'authorization']);
+Route::get('registration', [AuthorizationController::class, 'registration']);
+Route::post('registration_validate', [AuthorizationController::class, 'registration_validate']);
 Route::get('personal-data', function () {
     return view('personal-data');
 });
@@ -61,13 +61,11 @@ Route::get('hotelcard', function () {
 Route::get('catalog', function () {
     return view('catalog');
 });
-Route::get('create-card', function () {
-    return view('create-card');
-});
+Route::get('create-card', [MainController::class, 'create_card']);
 
-// Route::post('create-card/add', function (Request $request) {
-//     dd($request);
-// });
+Route::post('create-card/add', function (Request $request) {
+    dd($request);
+});
 Route::get('redact-card', function () {
     return view('redact-card');
 });
