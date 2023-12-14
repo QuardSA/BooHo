@@ -24,7 +24,7 @@
             <a href="#" class="text-decoration-none text-black"><img src="/img/sign-out.svg" alt="" class="me-2">Выйти из аккаунта</a>
             <hr>
         </div>
-        <div class="personal-info ms-4">
+        <div class="personal-info ms-2">
             <div class="form mx-auto text-center" style="width:29rem">        
                 <form action="" class="d-flex flex-column gap-3" >
                     <h3 class="fw-bold">Редактировать модератора</h3>

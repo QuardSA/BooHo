@@ -11,14 +11,15 @@
     <x-header></x-header>
     <div class="container mt-5">
         <div class="form mx-auto text-center">        
-            <form action="" class="d-flex flex-column gap-3" >
-                <h3 class="fw-bold">Создать аккаунт</h3>
-                <input type="text" placeholder="Введите своё Имя" name="">
-                <input type="text" placeholder="Введите свою Фамилию" name="">
-                <input type="text" placeholder="Введите свою Отчество" name="">
-                <input type="email" placeholder="Введите свой адрес электронной почты" name="">
-                <input type="password" placeholder="Введите пароль" name="">
-                <input type="password" placeholder="Подтверждение пароля" name="">
+            <form action="" class="d-flex flex-column gap-3">
+                @csrf
+                <h3 class="fw-bold">Регистрация</h3>
+                <input type="text" placeholder="Введите своё Имя" name="Name">
+                <input type="text" placeholder="Введите свою Фамилию" name="Surname">
+                <input type="text" placeholder="Введите свою Отчество" name="Patronymic">
+                <input type="email" placeholder="Введите свой адрес электронной почты" name="Email">
+                <input type="password" placeholder="Введите пароль" name="Password">
+                <input type="password" placeholder="Подтверждение пароля" name="Confirm_Password">
                 <button type="submit" class="text-white">Зарегистрироваться</button>
             </form>
             <hr>
