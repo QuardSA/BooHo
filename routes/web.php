@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthorizationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,9 +21,7 @@ Route::get('/', function () {
 Route::get('/authorization', function () {
     return view('authorization');
 });
-Route::get('/registration', function () {
-    return view('registration');
-});
+Route::get('registration', [AuthorizationController::class, "registration"]);
 Route::get('personal-data', function () {
     return view('personal-data');
 });
