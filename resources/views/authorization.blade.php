@@ -13,7 +13,7 @@
     <x-header></x-header>
     <div class="container mt-5">
         <div class="form mx-auto text-center">
-            <form action="" method="POST" class="d-flex flex-column gap-3">
+            <form action="autorization_validate" method="POST" class="d-flex flex-column gap-3">
                 @csrf
                 <h3 class="fw-bold">Авторизация</h3>
                 <input type="email" placeholder="Введите свой адрес электронной почты" name="Email"
