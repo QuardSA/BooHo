@@ -88,4 +88,15 @@ class AuthorizationController extends Controller
         Auth::logout();
         return redirect('/');
     }
+
+    public function edit_personal_data(Request $request)
+    {
+        $request ->validate([
+            'Password' =>'required',
+            'confirm_password' =>'required|same:Password',
+        ],[
+            'Password.required' =>'Поле обязательно для заполнения',
+            'Confirm_Password' =>'Поле обязательно для заполнения',
+        ],);
+    }
 }
