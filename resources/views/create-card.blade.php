@@ -26,9 +26,9 @@
                 <div class="mb-3">
                     <select class="form-select" aria-label="Default select example" name="Category">
                         <option selected>Категория</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        @foreach ($categories as $item)
+                            <option value="{{$item->id}}">{{$item->Title_categories}}</option>
+                        @endforeach  
                     </select>
                 </div>
                 <h4>Услуги и удобства</h4>

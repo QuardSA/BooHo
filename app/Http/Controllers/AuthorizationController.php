@@ -45,7 +45,7 @@ class AuthorizationController extends Controller
             'Patronymic' => $userInfo['Patronymic'],
             'Email' => $userInfo['Email'],
             'Password' => Hash::make($userInfo['Password']),
-            'Role' => 3,
+            'Role' => "3",
         ]);
         if ($userCreate) {
             Auth::login($userCreate);
