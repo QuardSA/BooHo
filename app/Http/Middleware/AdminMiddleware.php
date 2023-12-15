@@ -21,8 +21,6 @@ class AdminMiddleware
             {
                 return redirect()->back();
             }
-
-            
         }
         else{
 
