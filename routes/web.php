@@ -60,14 +60,18 @@ Route::group(['namespace'=> 'Admin','middleware'=>'admin'], function(){
     Route::get('admin/moderator-edit', function () {
         return view('admin.moderator-edit');
     });
-    Route::get('admin/ordersAcces', function () {
-        return view('admin.ordersAcces');
+});
+
+Route::group(['namespace'=> 'Moderator','middleware'=>'moderator'], function(){
+
+    Route::get('moderator/ordersAcces', function () {
+        return view('moderator.ordersAcces');
     });
-    Route::get('admin/ordersDeny', function () {
-        return view('admin.ordersDeny');
+    Route::get('moderator/ordersDeny', function () {
+        return view('moderator.ordersDeny');
     });
-    Route::get('admin/ordersNew', function () {
-        return view('admin.ordersNew');
+    Route::get('moderator', function () {
+        return view('moderator.ordersNew');
     });
 });
 
