@@ -29,19 +29,19 @@
 			<tbody>
 			  <tr>
 			    <td style="width: 10rem;">Фамилия</td>
-			    <td>Смирнов</td>
+			    <td>{{Auth::user()->Surname}}</td>
 			  </tr>
 			  <tr>
 			    <td>Имя</td>
-			    <td>Алексей</td>
+			    <td>{{Auth::user()->Name}}</td>
 			  </tr>
 			  <tr>
 			    <td>Отчество</td>
-			    <td>Андреевич</td>
+			    <td>{{Auth::user()->Patronymic}}</td>
 			  </tr>
 			  <tr>
 			    <td>Почта</td>
-			    <td>aldm1989@inbox.ru</td>
+			    <td>{{Auth::user()->Email}}</td>
 			  </tr>
 			</tbody>
 			</table>
