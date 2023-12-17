@@ -1,5 +1,7 @@
 <?php
 
+use Database\Seeders\CountrySeed;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,7 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('title_countries');
             $table->string('photo');
+            $table->timestamps();
+
         });
+        Artisan::call('db:seed', ['--class'=>CountrySeed::class]);
     }
 
     /**

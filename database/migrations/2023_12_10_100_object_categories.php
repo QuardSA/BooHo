@@ -1,5 +1,7 @@
 <?php
 
+use Database\Seeders\CategoriesSeed;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,8 +16,10 @@ return new class extends Migration
          Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('title_categories');
+            $table->timestamps();
 
         });
+        Artisan::call('db:seed', ['--class'=>CategoriesSeed::class]);
     }
 
     /**

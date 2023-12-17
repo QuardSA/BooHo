@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignid('object')->references('id')->on('type_objects');
             $table->foreignid('service')->references('id')->on('services');
+            $table->timestamps();
         });
     }
 

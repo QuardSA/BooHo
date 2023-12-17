@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('file_photo');
             $table->foreignid('object')->references('id')->on('type_objects');
+            $table->timestamps();
         });
     }
 
