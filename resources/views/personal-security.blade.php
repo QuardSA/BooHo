@@ -34,7 +34,7 @@
 			  			  	<label for="password">Текущий пароль</label>
 			  			  </td>
 			  			  <td>
-			  			  	<input type="password" name="password">
+			  			  	<input type="password" name="Password">
 			  			  </td>
 			  			</tr>
 			  			<tr>
@@ -42,7 +42,7 @@
 			  			  	<label for="password">Новый пароль</label>
 			  			  </td>
 			  			  <td>
-			  			  	<input type="password" name="password">
+			  			  	<input type="password" name="confirm_password">
 			  			  </td>
 			  			</tr>
 					</tbody>

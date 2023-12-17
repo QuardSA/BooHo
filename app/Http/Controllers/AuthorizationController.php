@@ -59,29 +59,52 @@ class AuthorizationController extends Controller
         return view('authorization');
     }
     public function autorization_validate(Request $request)
-    {
-        $request->validate(
-            [
-                'Email' => 'required|email',
-                'Password' => 'required',
-            ],
-            [
-                'Email.required' => 'Поле обязательно для заполнения',
-                'Email.email' => 'Введит email правильно',
-                'Password.reqired' => 'Поле обязательно для заполнения',
-            ],
-        );
-        $user_authorization = $request->only('email', 'password');
-        if (Auth::attempt(['Email' => $user_authorization['Email'], 'Password' => $user_authorization['Password']])) {
-            if (Auth::user()->Role == 1) {
-                return redirect('/admin/index')->with('success', 'Вы вошли как администратор');
-            } else {
-                return redirect('/personal_data') - with('success', 'Добро пожаловать');
-            }
+{
+    $request->validate([
+        'Email' => 'required|email',
+        'Password' => 'required',
+    ], [
+        'Email.required' => 'Поле обязательно для заполнения',
+        'Email.email' => 'Введите email правильно',
+        'Password.required' => 'Поле обязательно для заполнения',
+    ]);
+
+    $user_authorization = $request->only('Email', 'Password');
+
+    if (Auth::attempt(['Email' => $user_authorization['Email'], 'Password' => $user_authorization['Password']])) {
+        if (Auth::user()->Role == 1) {
+            return redirect('/admin')->with('success', 'Вы вошли как администратор');
         } else {
-            return redirect('/authorization')->with('error', 'Ошибка авторизации');
+            return redirect('/personal-data')->with('success', 'Добро пожаловать');
         }
+    } else {
+        return redirect('/authorization')->with('error', 'Ошибка авторизации');
     }
+}
+    // public function autorization_validate(Request $request)
+    // {
+    //     $request->validate(
+    //         [
+    //             'Email' => 'required|email',
+    //             'Password' => 'required',
+    //         ],
+    //         [
+    //             'Email.required' => 'Поле обязательно для заполнения',
+    //             'Email.email' => 'Введит email правильно',
+    //             'Password.required' => 'Поле обязательно для заполнения',
+    //         ],
+    //     );
+    //     $user_authorization = $request->only('Email', 'Password');
+    //     if (Auth::attempt(['Email' => $user_authorization['Email'], 'Password' => $user_authorization['Password']])) {
+    //         if (Auth::user()->Role == 1) {
+    //             return redirect('/admin/index')->with('success', 'Вы вошли как администратор');
+    //         } else {
+    //             return redirect('/personal_data')->with('success', 'Добро пожаловать');
+    //         }
+    //     } else {
+    //         return redirect('/authorization')->with('error', 'Ошибка авторизации');
+    //     }
+    // }
     public function sign_out()
     {
         Session::flush();

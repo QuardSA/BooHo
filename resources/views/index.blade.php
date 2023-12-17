@@ -35,102 +35,35 @@
             </div>
             {{-- Основной блок --}}
             <div class="info ">
-                <h3 class="mt-4">Популярные направления</h2>
-                    <div class="test mt-3 d-flex gap-2 flex-wrap justify-content-center">
+                <h3 class="mt-4">Популярные направления</h3>
+                <div class="test mt-3 d-flex gap-2 flex-wrap justify-content-center">
+                    @foreach ($countries as $country)
                         <div class="country position-relative">
                             <a href="/catalog">
-                                <img src="/img/France.webp" alt="">
-                                <div class="country-name fs-5 position-absolute text-white fw-bold">Франция</div>
+                                <img src="/img/{{ $country->Photo }}" alt="">
+                                <div class="country-name fs-5 position-absolute text-white fw-bold">
+                                    {{ $country->Title_countries }}</div>
                             </a>
                         </div>
-                        <div class="country position-relative">
-                            <a href="">
-                                <img src="/img/France.webp" alt="">
-                                <div class="country-name fs-5 position-absolute text-white fw-bold">Франция</div>
-                            </a>
-                        </div>
+                    @endforeach
+                </div>
+                <h3 class="mt-4">Дома которые точно понравятся</h3>
+                    <div class="mt-3 d-flex gap-4 flex-wrap justify-content-center">
+                        @foreach ($objects as $object)
+                            <div class="card shadow p-3  bg-body rounded" style="width: 18rem; height:22rem">
+                                <a href="/hotelcard" class="text-decoration-none text-black">
+                                    <img src="/img/" class="card-img-top" style=" height:12rem"
+                                        alt="">
+                                    <div class="card-body">
+                                        <p class="title fs-5 ">{{$object->Title_object}}
+                                        <p class="location">{{$object->country_object->Title_countries}},{{$object->Address}}</p>
+                                        </p>
+                                        <p class="price fs-5 text-end">От 10000 руб.</p>
+                                    </div>
+                                </a>
+                            </div>
+                        @endforeach
                     </div>
-                    <div class="mt-3 d-flex gap-2 flex-wrap justify-content-center">
-                        <div class="country-small">
-                            <div class="country-small position-relative">
-                                <a href="">
-                                    <img src="/img/France.webp" alt="">
-                                    <div class="country-small-name position-absolute text-white fw-bold">Франция</div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="country-small">
-                            <div class="country-small position-relative">
-                                <a href="">
-                                    <img src="/img/France.webp" alt="">
-                                    <div class="country-small-name position-absolute text-white fw-bold">Франция</div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="country-small">
-                            <div class="country-small position-relative">
-                                <a href="">
-                                    <img src="/img/France.webp" alt="">
-                                    <div class="country-small-name position-absolute text-white fw-bold">Франция</div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3 class="mt-4">Дома которые точно понравятся</h2>
-                        <div class="mt-3 d-flex gap-4 flex-wrap justify-content-center">
-                            <div class="card shadow p-3  bg-body rounded" style="width: 18rem; height:22rem">
-                                <a href="/hotelcard" class="text-decoration-none text-black">
-                                    <img src="/img/appartaments.webp" class="card-img-top" style=" height:12rem"
-                                        alt="">
-                                    <div class="card-body">
-                                        <p class="title fs-5 ">Apparthotel stare Miasto
-                                        <p class="location">Old town, Polish, Krakow</p>
-                                        </p>
-                                        <p class="feedback fs-6">2471 отзыв</p>
-                                        <p class="price fs-5 text-end">От 10000 руб.</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="card shadow p-3  bg-body rounded" style="width: 18rem; height:22rem">
-                                <a href="/hotelcard" class="text-decoration-none text-black">
-                                    <img src="/img/appartaments.webp" class="card-img-top" style=" height:12rem"
-                                        alt="">
-                                    <div class="card-body">
-                                        <p class="title fs-5 ">Apparthotel stare Miasto
-                                        <p class="location">Old town, Polish, Krakow</p>
-                                        </p>
-                                        <p class="feedback fs-6">2471 отзыв</p>
-                                        <p class="price fs-5 text-end">От 10000 руб.</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="card shadow p-3  bg-body rounded" style="width: 18rem; height:22rem">
-                                <a href="/hotelcard" class="text-decoration-none text-black">
-                                    <img src="/img/appartaments.webp" class="card-img-top" style=" height:12rem"
-                                        alt="">
-                                    <div class="card-body">
-                                        <p class="title fs-5 ">Apparthotel stare Miasto
-                                        <p class="location">Old town, Polish, Krakow</p>
-                                        </p>
-                                        <p class="feedback fs-6">2471 отзыв</p>
-                                        <p class="price fs-5 text-end">От 10000 руб.</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="card shadow p-3  bg-body rounded" style="width: 18rem; height:22rem">
-                                <a href="/hotelcard" class="text-decoration-none text-black">
-                                    <img src="/img/appartaments.webp" class="card-img-top" style=" height:12rem"
-                                        alt="">
-                                    <div class="card-body">
-                                        <p class="title fs-5 ">Apparthotel stare Miasto
-                                        <p class="location">Old town, Polish, Krakow</p>
-                                        </p>
-                                        <p class="feedback fs-6">2471 отзыв</p>
-                                        <p class="price fs-5 text-end">От 10000 руб.</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
             </div>
 
         </div>

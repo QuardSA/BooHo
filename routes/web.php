@@ -28,8 +28,7 @@ Route::get('registration', [AuthorizationController::class, 'registration']);
 Route::post('autorization_validate', [AuthorizationController::class, 'autorization_validate']);
 Route::post('registration_validate', [AuthorizationController::class, 'registration_validate']);
 Route::get('sign_out',[AuthorizationController::class, 'sign_out']);
-
-
+Route::get('/',[MainController::class, 'country']);
 
 
 

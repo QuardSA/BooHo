@@ -2,12 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\apartament;
+use App\Models\photo;
+use App\Models\country;
 use App\Models\type_object;
 
 use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
+
+    public function country(){
+        $countries = country::take(4)->get();
+        $objects = type_object::with("apartament")->take(4)->get();
+        return view('index',['countries'=>$countries,'objects'=>$objects]);
+    }
+
     public function create_card()
     {
         return view('create-card');

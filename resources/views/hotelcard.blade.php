@@ -165,8 +165,7 @@
             <div class="main-info-hotel border ms-4 shadow p-3 mb-5 bg-body-tertiary rounded"
                 style="max-height: 10rem; width:30%;">
                 <p class="text-dark fw-semibold fs-5">Поляна 1389 Отель и Спа</p>
-                <p class="p text-dark fw-semibold fs-5 mb-0">6 - 7 Декабрь</p>
-                <p class="text-dark fw-light">Заезд с 15:00, отъезд до 12:00</p>
+                <p class="text-dark fw-light">Address</p>
             </div>
         </div>
     </div>
