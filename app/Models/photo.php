@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class photo extends Model
 {
-    protected $fillable = ['File_photo', 'Object'];
+    protected $fillable = ['cile_photo', 'object'];
 
     public function object_photo()
     {
-        return $this->belongsTo(type_object::class, 'Object', 'id');
+        return $this->belongsTo(type_object::class, 'object', 'id');
     }
 }

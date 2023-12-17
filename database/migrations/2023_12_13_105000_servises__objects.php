@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('services_objects', function (Blueprint $table) {
             $table->id();
-            $table->foreignid('Object')->references('id')->on('type_objects');
-            $table->foreignid('Service')->references('id')->on('services');
+            $table->foreignid('object')->references('id')->on('type_objects');
+            $table->foreignid('service')->references('id')->on('services');
         });
     }
 

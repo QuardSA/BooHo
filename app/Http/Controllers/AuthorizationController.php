@@ -17,35 +17,35 @@ class AuthorizationController extends Controller
     {
         $request->validate(
             [
-                'Name' => 'required|alpha',
-                'Surname' => 'required|alpha',
-                'Patronymic' => 'required|alpha',
-                'Email' => 'required|unique:users|email',
-                'Password' => 'required',
-                'Confirm_Password' => 'required|same:Password',
+                'name' => 'required|alpha',
+                'surname' => 'required|alpha',
+                'patronymic' => 'required|alpha',
+                'email' => 'required|unique:users|email',
+                'password' => 'required',
+                'confirm_password' => 'required|same:password',
             ],
             [
-                'Email.required' => 'Поле обязательно для заполнения',
-                'Email.email' => 'Введите email',
-                'Email.unique' => 'Данный email уже занят',
-                'Name.required' => 'Поле обязательно для заполнения',
-                'Name.alpha' => 'Имя должно состоять только из букв',
-                'Surname.required' => 'Поле обязательно для заполнения',
-                'Surname.alpha' => 'Фамилия должна состоять только из букв',
-                'Patronymic.required' => 'Поле оьбязательно для заполнения',
-                'Patronymic.alpha' => 'Поле должно состоять только из букв',
-                'Password.required' => 'Поле обязательно для заполнения',
-                'Confirm_Password' => 'Поле обязательно для заполнения',
+                'email.required' => 'Поле обязательно для заполнения',
+                'email.email' => 'Введите email',
+                'email.unique' => 'Данный email уже занят',
+                'name.required' => 'Поле обязательно для заполнения',
+                'name.alpha' => 'Имя должно состоять только из букв',
+                'surname.required' => 'Поле обязательно для заполнения',
+                'surname.alpha' => 'Фамилия должна состоять только из букв',
+                'patronymic.required' => 'Поле оьбязательно для заполнения',
+                'patronymic.alpha' => 'Поле должно состоять только из букв',
+                'password.required' => 'Поле обязательно для заполнения',
+                'confirm_password' => 'Поле обязательно для заполнения',
             ],
         );
         $userInfo = $request->all();
         $userCreate = User::create([
-            'Name' => $userInfo['Name'],
-            'Surname' => $userInfo['Surname'],
-            'Patronymic' => $userInfo['Patronymic'],
-            'Email' => $userInfo['Email'],
-            'Password' => Hash::make($userInfo['Password']),
-            'Role' => "3",
+            'name' => $userInfo['name'],
+            'surname' => $userInfo['surname'],
+            'patronymic' => $userInfo['patronymic'],
+            'email' => $userInfo['email'],
+            'password' => Hash::make($userInfo['password']),
+            'role' => "3",
         ]);
         if ($userCreate) {
             Auth::login($userCreate);
@@ -58,48 +58,32 @@ class AuthorizationController extends Controller
     {
         return view('authorization');
     }
-    public function login(Request $request)
+    public function authorization_validate(Request $request)
     {
+        $request->validate([
+            'email' => 'required|email:rfc,dns',
+            'password' => 'required',
+        ], [
+            'email.required' => 'Поле обязательно для заполнения',
+            'email.email' => 'Введите email правильно',
+            'password.required' => 'Поле обязательно для заполнения',
+        ]);
 
+        $user_authorization = $request->only("email", "password");
 
-        $user = $request->only('Email', 'Password');
-
-        if (Auth::attempt([
-            'Email' => $user['Email'],
-            'Password' => $user['Password'],
-        ])) {
-            if (Auth::user()->id == 1) {
-                return redirect('admin')->with('succes', 'Привет админ');
+        if (Auth::attempt(["email" => $user_authorization['email'], "password" => $user_authorization['password']])) {
+            if (Auth::user()->role == 1) {
+                return redirect('/admin')->with('success', 'Вы вошли как Администратор');
+            }
+            elseif(Auth::user()->role == 2){
+                return redirect('/moderator')->with('success', 'Добро пожаловать Модератор');
             } else {
-                return redirect('/')->with('succes', '');
+                return redirect('/personal-data')->with('success', 'Добро пожаловать');
             }
         } else {
-            return redirect('/authorization')->with('error', 'Проверьте введеные данные!');
+            return redirect('/authorization')->with('error', 'Ошибка авторизации');
         }
     }
-//     public function autorization_validate(Request $request)
-// {
-//     $request->validate([
-//         'Email' => 'required|email',
-//         'Password' => 'required',
-//     ], [
-//         'Email.required' => 'Поле обязательно для заполнения',
-//         'Email.email' => 'Введите email правильно',
-//         'Password.required' => 'Поле обязательно для заполнения',
-//     ]);
-
-//     $user_authorization = $request->only("Email", "Password");
-
-//     if (Auth::attempt(["Email" => $user_authorization['Email'], "password" => $user_authorization['Password']])) {
-//         if (Auth::user()->Role == 1) {
-//             return redirect('/admin')->with('success', 'Вы вошли как администратор');
-//         } else {
-//             return redirect('/personal-data')->with('success', 'Добро пожаловать');
-//         }
-//     } else {
-//         return redirect('/authorization')->with('error', 'Ошибка авторизации');
-//     }
-// }
     public function sign_out()
     {
         Session::flush();
@@ -107,14 +91,44 @@ class AuthorizationController extends Controller
         return redirect('/');
     }
 
-    public function edit_personal_data(Request $request)
+    public function add_moderator(Request $request)
     {
-        $request ->validate([
-            'Password' =>'required',
-            'confirm_password' =>'required|same:Password',
-        ],[
-            'Password.required' =>'Поле обязательно для заполнения',
-            'Confirm_Password' =>'Поле обязательно для заполнения',
-        ],);
+        $request->validate(
+            [
+                'name' => 'required|alpha',
+                'surname' => 'required|alpha',
+                'patronymic' => 'required|alpha',
+                'email' => 'required|unique:users|email',
+                'password' => 'required',
+                'confirm_password' => 'required|same:password',
+            ],
+            [
+                'email.required' => 'Поле обязательно для заполнения',
+                'email.email' => 'Введите email',
+                'email.unique' => 'Данный email уже занят',
+                'name.required' => 'Поле обязательно для заполнения',
+                'name.alpha' => 'Имя должно состоять только из букв',
+                'surname.required' => 'Поле обязательно для заполнения',
+                'surname.alpha' => 'Фамилия должна состоять только из букв',
+                'patronymic.required' => 'Поле оьбязательно для заполнения',
+                'patronymic.alpha' => 'Поле должно состоять только из букв',
+                'password.required' => 'Поле обязательно для заполнения',
+                'confirm_password' => 'Поле обязательно для заполнения',
+            ],
+        );
+        $userInfo = $request->all();
+        $userCreate = User::create([
+            'name' => $userInfo['name'],
+            'surname' => $userInfo['surname'],
+            'patronymic' => $userInfo['patronymic'],
+            'email' => $userInfo['email'],
+            'password' => Hash::make($userInfo['password']),
+            'role' => "2",
+        ]);
+        if ($userCreate) {
+            return redirect('/admin')->with('success', 'Вы добавили модератора');
+        }else{
+            return redirect('/admin/moderator-create')->with('success', 'Ошибка добавления');
+        }
     }
 }

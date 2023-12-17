@@ -40,9 +40,9 @@
                     @foreach ($countries as $country)
                         <div class="country position-relative">
                             <a href="/catalog">
-                                <img src="/img/{{ $country->Photo }}" alt="">
+                                <img src="/img/{{ $country->photo }}" alt="">
                                 <div class="country-name fs-5 position-absolute text-white fw-bold">
-                                    {{ $country->Title_countries }}</div>
+                                    {{ $country->title_countries }}</div>
                             </a>
                         </div>
                     @endforeach
@@ -55,8 +55,8 @@
                                     <img src="/img/" class="card-img-top" style=" height:12rem"
                                         alt="">
                                     <div class="card-body">
-                                        <p class="title fs-5 ">{{$object->Title_object}}
-                                        <p class="location">{{$object->country_object->Title_countries}},{{$object->Address}}</p>
+                                        <p class="title fs-5 ">{{$object->title_object}}
+                                        <p class="location">{{$object->country_object->title_countries}},{{$object->address}}</p>
                                         </p>
                                         <p class="price fs-5 text-end">От 10000 руб.</p>
                                     </div>

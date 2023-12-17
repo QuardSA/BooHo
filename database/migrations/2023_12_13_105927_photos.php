@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('photos', function (Blueprint $table) {
             $table->id();
-            $table->string('File_photo');
-            $table->foreignid('Object')->references('id')->on('type_objects');
+            $table->string('file_photo');
+            $table->foreignid('object')->references('id')->on('type_objects');
         });
     }
 

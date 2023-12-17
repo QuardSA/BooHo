@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('Object')->references('id')->on('type_objects');
+            $table->foreignId('object')->references('id')->on('type_objects');
             $table->timestamps();
         });
     }

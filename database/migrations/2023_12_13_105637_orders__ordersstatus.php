@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('orders_orderstatus', function (Blueprint $table) {
             $table->id();
-            $table->foreignid('Orders')->references('id')->on('orders');
-            $table->foreignid('Status')->references('id')->on('orders_status');
+            $table->foreignid('orders')->references('id')->on('orders');
+            $table->foreignid('status')->references('id')->on('orders_status');
             $table->timestamps();
         });
     }

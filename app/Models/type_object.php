@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class type_object extends Model
 {
-    protected $fillable = ['Title_object', 'Description', 'Country', 'Placement', 'Category', 'Apartament', 'Check_in', 'Check_out', 'User', 'Address', 'City'];
+    protected $fillable = ['title_object', 'description', 'country', 'placement', 'category', 'apartament', 'check_in', 'check_out', 'user', 'address', 'city'];
 
     public function country_object()
     {

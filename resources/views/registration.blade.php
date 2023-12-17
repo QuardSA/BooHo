@@ -16,41 +16,41 @@
             <form action="/registration_validate" method="POST" class="d-flex flex-column gap-3">
                 @csrf
                 <h3 class="fw-bold">Регистрация</h3>
-                <input type="text" placeholder="Введите своё Имя" name="Name" required>
-                @error('Name')
+                <input type="text" placeholder="Введите своё Имя" name="name" required>
+                @error('name')
                     <div class="alert alert-danger" role="alert">
                         {{ $message }}
                     </div>
                 @enderror
-                <input type="text" placeholder="Введите свою Фамилию" name="Surname" required>
-                @error('Surname')
+                <input type="text" placeholder="Введите свою Фамилию" name="surname" required>
+                @error('surname')
                     <div class="alert alert-danger" role="alert">
                         {{ $message }}
                     </div>
                 @enderror
-                <input type="text" placeholder="Введите свою Отчество" name="Patronymic" required>
-                @error('Patronymic')
+                <input type="text" placeholder="Введите свою Отчество" name="patronymic" required>
+                @error('patronymic')
                     <div class="alert alert-danger" role="alert">
                         {{ $message }}
                     </div>
                 @enderror
-                <input type="email" placeholder="Введите свой адрес электронной почты" name="Email"
-                    value="{{ old('Email') }}" required>
-                @error('Email')
+                <input type="email" placeholder="Введите свой адрес электронной почты" name="email"
+                    value="{{ old('email') }}" required>
+                @error('email')
                     <div class="alert alert-danger" role="alert">
                         {{ $message }}
                     </div>
                 @enderror
-                <input type="password" placeholder="Введите пароль" name="Password" value="{{ old('Password') }}"
+                <input type="password" placeholder="Введите пароль" name="password" value="{{ old('password') }}"
                     required>
-                @error('Password')
+                @error('password')
                     <div class="alert alert-danger" role="alert">
                         {{ $message }}
                     </div>
                 @enderror
-                <input type="password" placeholder="Подтверждение пароля" name="Confirm_Password"
-                    value="{{ old('Confirm_Password') }}" required>
-                @error('Confirm_Password')
+                <input type="password" placeholder="Подтверждение пароля" name="confirm_password"
+                    value="{{ old('confirm_password') }}" required>
+                @error('confirm_password')
                     <div class="alert alert-danger" role="alert">
                         {{ $message }}
                     </div>

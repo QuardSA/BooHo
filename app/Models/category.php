@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class category extends Model
 {
     protected $fillable = [
-        "Title_categories";
+        "title_categories",
     ];
 }

@@ -8,20 +8,15 @@
     <x-link></x-link>
 </head>
 <body>
-    <x-header></x-header>
     <div class="container mt-5 d-flex flex-wrap">
       <div class="personal-settings rounded-1 d-flex flex-column border py-3 px-4 mb-3">
-        <a href="/admin/ordersNew" class="text-decoration-none text-black"><img src="/img/Orders.svg" alt="" class="me-2">Запросы</a>
+        <a href="/moderator" class="text-decoration-none text-black"><img src="/img/Orders.svg" alt="" class="me-2">Запросы</a>
         <hr>
-        <a href="/admin/ordersDeny" class="text-decoration-none text-black"><img src="/img/Deny.svg" alt="" class="me-2">Отклонено</a>
+        <a href="/moderator/ordersDeny" class="text-decoration-none text-black"><img src="/img/Deny.svg" alt="" class="me-2">Отклонено</a>
         <hr>
-        <a href="/admin/ordersAcces" class="text-decoration-none text-black"><img src="/img/Accept.svg" alt="" class="me-2">Принято</a>
+        <a href="/moderator/ordersAcces" class="text-decoration-none text-black"><img src="/img/Accept.svg" alt="" class="me-2">Принято</a>
         <hr>
-        <a href="/admin/moderator-create" class="text-decoration-none text-black"><img src="/img/Add_moderator.svg" alt="" class="me-2">Добавить модератора</a>
-        <hr>
-        <a href="/admin" class="text-decoration-none text-black"><img src="/img/all_moderators.png" alt="" class="me-2">Список модераторов</a>
-        <hr>
-        <a href="#" class="text-decoration-none text-black"><img src="/img/sign-out.svg" alt="" class="me-2">Выйти из аккаунта</a>
+        <a href="/sign_out" class="text-decoration-none text-black"><img src="/img/sign-out.svg" alt="" class="me-2">Выйти из аккаунта</a>
         <hr>
       </div>
         <div class="personal-info ms-2">

@@ -6,37 +6,15 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    // /**
-    //  * Run the migrations.
-    //  */
-    // public function up(): void
-    // {
-    //         Schema::create('apartaments', function (Blueprint $table) {
-    //         $table->id();
-    //         $table->string('Title_apartaments');
-    //         $table->string('Count_people');
-    //         $table->foreignId('Object')->reference('id')->on('objects');
-    //         $table->double('Cost');
-    //         $table->string('Photo');
-    //         $table->timestamps();
-    //     });
-
-    // /**
-    //  * Reverse the migrations.
-    //  */
-    // public function down(): void
-    // {
-    //     Schema::dropIfExists('apartaments');
-    // }
     public function up(): void
     {
         Schema::create('apartaments', function (Blueprint $table) {
             $table->id();
-            $table->string('Title_apartaments');
-            $table->string('Count_people');
-            $table->double('Cost');
-            $table->string('Photo');
-            $table->foreignId('Object')->references('id')->on('type_objects');
+            $table->string('title_apartaments');
+            $table->string('count_people');
+            $table->double('cost');
+            $table->string('photo');
+            $table->foreignId('object')->references('id')->on('type_objects');
             $table->timestamps();
         });
     }

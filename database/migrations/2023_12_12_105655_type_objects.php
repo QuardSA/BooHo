@@ -13,16 +13,16 @@ return new class extends Migration
     {
         Schema::create('type_objects', function (Blueprint $table) {
             $table->id();
-            $table->string('Title_object');
-            $table->text('Description');
-            $table->foreignId('Country')->references('id')->on('countries');
-            $table->foreignId('Placement')->references('id')->on('type_placements');
-            $table->foreignId('Category')->references('id')->on('categories');
-            $table->string('Check_in');
-            $table->string('Check_out');
-            $table->foreignId('User')->references('id')->on('users');
-            $table->string('Address');
-            $table->string('City');
+            $table->string('title_object');
+            $table->text('tescription');
+            $table->foreignId('country')->references('id')->on('countries');
+            $table->foreignId('placement')->references('id')->on('type_placements');
+            $table->foreignId('category')->references('id')->on('categories');
+            $table->string('check_in');
+            $table->string('check_out');
+            $table->foreignId('user')->references('id')->on('users');
+            $table->string('address');
+            $table->string('city');
             $table->timestamps();
         });
     }

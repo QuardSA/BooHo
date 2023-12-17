@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('type_placements', function (Blueprint $table) {
             $table->id();
-            $table->string('Title_placement');
-        }); 
+            $table->string('title_placement');
+        });
     }
 
     /**

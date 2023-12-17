@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('countries', function (Blueprint $table) {
             $table->id();
-            $table->string('Title_countries');
-            $table->string('Photo');
-        }); 
+            $table->string('title_countries');
+            $table->string('photo');
+        });
     }
 
     /**

@@ -13,18 +13,18 @@
     <x-header></x-header>
     <div class="container mt-5">
         <div class="form mx-auto text-center">
-            <form action="{{route('login')}}" method="POST" class="d-flex flex-column gap-3">
+            <form action="{{route('authorization_validate')}}" method="POST" class="d-flex flex-column gap-3">
                 @csrf
                 <h3 class="fw-bold">Авторизация</h3>
-                <input type="email" placeholder="Введите свой адрес электронной почты" name="Email"
-                    value="{{ old('Email') }}">
-                    @error('Email')
+                <input type="email" placeholder="Введите свой адрес электронной почты" name="email"
+                    value="{{ old('email') }}">
+                    @error('email')
                     <div class="alert alert-danger" role="alert">
                         {{ $message }}
                     </div>
                 @enderror
-                <input type="password" placeholder="Введите пароль" name="Password" value="{{ old('Password') }}">
-                @error('Password')
+                <input type="password" placeholder="Введите пароль" name="password" value="{{ old('password') }}">
+                @error('password')
                 <div class="alert alert-danger" role="alert">
                     {{ $message }}
                 </div>

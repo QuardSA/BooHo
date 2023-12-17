@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class country extends Model
 {
-    protected $fillable = ['Title_countries', 'Photo'];
+    protected $fillable = ['title_countries', 'photo'];
 
     public function object_country()
     {
-        return $this->hasMany(type_objects::class, 'Country');
+        return $this->hasMany(type_objects::class, 'country');
     }
 }

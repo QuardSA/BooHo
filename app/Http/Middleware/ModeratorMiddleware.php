@@ -17,7 +17,7 @@ class ModeratorMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         if(Auth::check()){
-            if(auth()->user()->Role !== 2)
+            if(auth()->user()->role !== 2)
             {
                 return redirect()->back();
             }

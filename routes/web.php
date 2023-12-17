@@ -25,7 +25,7 @@ Route::get('/', function () {
 
 Route::get('authorization', [AuthorizationController::class, 'authorization']);
 Route::get('registration', [AuthorizationController::class, 'registration']);
-Route::post('login', [AuthorizationController::class, 'login'])->name('login');
+Route::post('authorization_validate', [AuthorizationController::class, 'authorization_validate'])->name('authorization_validate');
 Route::post('registration_validate', [AuthorizationController::class, 'registration_validate']);
 Route::get('sign_out',[AuthorizationController::class, 'sign_out']);
 Route::get('/',[MainController::class, 'country']);
@@ -44,21 +44,23 @@ Route::get('personal-objects', function () {
 Route::get('personal-security', function () {
     return view('personal-security');
 });
-Route::get('personal-security', function () {
-    return view('personal-security');
-});
 
 
 Route::group(['namespace'=> 'Admin','middleware'=>'admin'], function(){
-    Route::get('admin', function () {
-        return view('admin.index');
-    });
+
+    Route::get('/admin/index',[MainController::class, 'moderators']);
+
+    Route::delete('/admin/index/{id}/delete', [MainController::class, 'delete'])->name('delete_moder');
+
     Route::get('admin/moderator-create', function () {
         return view('admin.moderator-create');
     });
-    Route::get('admin/moderator-edit', function () {
-        return view('admin.moderator-edit');
-    });
+
+    Route::post('/add_moderator', [AuthorizationController::class, 'add_moderator']);
+
+    Route::get('admin/index/{id}/moderator-edit',[MainController::class, 'edit_moderator']);
+    Route::post('admin/index/{id}/edit_moderator_valid',[MainController::class, 'edit_moderator_valid'])->name('edit_moderator_validate');
+
 });
 
 Route::group(['namespace'=> 'Moderator','middleware'=>'moderator'], function(){

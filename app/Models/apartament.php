@@ -9,10 +9,10 @@ use Illuminate\Database\Eloquent\Model;
 class apartament extends Model
 {
     protected $fillable = [
-        "Title_apartaments",
-        "Count_people",
-        "Cost",
-        "Photo",
+        "title_apartaments",
+        "count_people",
+        "cost",
+        "photo",
     ];
 
     public function appartaments_object(){
