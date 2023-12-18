@@ -51,7 +51,7 @@
                 <div class="mt-3 d-flex gap-4 flex-wrap justify-content-center">
                     @foreach ($objects as $object)
                         <div class="card shadow p-3  bg-body rounded" style="width: 18rem; height:22rem">
-                            <a href="{{ route('hotelcard', ['id' => $hotelcard->id]) }}"
+                            <a href="{{ route('hotelcard', ['id' => $object->id]) }}"
                                 class="text-decoration-none text-black">
                                 <img src="/img/{{ $object->photo }}" class="card-img-top" style=" height:12rem"
                                     alt="">
@@ -60,7 +60,7 @@
                                     <p class="location">
                                         {{ $object->country_object->title_countries }},{{ $object->address }}</p>
                                     </p>
-                                    <p class="price fs-5 text-end">От {{ $object->apartament_object->cost }}
+                                    <p class="price fs-5 text-end">{{ $object->apartament_object->cost }} руб
                                     </p>
                                 </div>
                             </a>

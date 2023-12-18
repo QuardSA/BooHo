@@ -73,76 +73,32 @@
         </div>
         <div class="container d-flex flex-column flex-wrap gap-2 ms-5"
             style="max-width: 70% !important">
+            @forelse ($hotels as $hotel)
             <div class="hotel-card border rounded-2 p-2 ">
                 <div class="row">
                     <div class="col-sm-3">
-                        <img src="/img/appartaments.webp" class="img-thumbnail rounded-start" alt="">
+                        <img src="/img/{{$hotel->photo}}" class="img-thumbnail rounded-start" alt="">
                     </div>
                     <div class="col-sm">
-                        <p class="card-title fs-3 fw-bold ">Blue Gilroy Hotel
-                        <p class="location">Old town, Polish, Krakow</p>
+                        <p class="card-title fs-3 fw-bold ">{{$hotel->title_object}}
+                        <p class="location">{{$hotel->title_object}}</p>
                         </p>
-                        <p class="truncate3 card-text">In the centre of Istanbul, located within a short distance of
-                            Taksim Square and Taksim Metro Station, Cihangir apart hotel offers free WiFi, air
-                            conditioning and household amenities such as a stovetop and kettle. Private parking is
-                            available on site. The apartment features 2 bedrooms, a flat-screen TV with satellite
-                            channels, an equipped kitchen with a dishwasher and a fridge, a washing machine, and 1
-                            bathroom with a shower. Towels and bed linen are provided in the apartment.</p>
+                        <p class="truncate3 card-text">{{$hotel->description}}</p>
                     </div>
                     <div class="col-sm-4">
-                        <p class="cost text-end me-4 fs-4">43 333 руб.</p>
-                        <p class="text-end me-4"><a href="/hotelcard" class="btn btn-outline-primary">Наличие мест</a>
+                        <p class="cost text-end me-4 fs-4">{{$hotel->apartament_object->cost}} руб</p>
+                        <p class="text-end me-4"><a href="{{ route('hotelcard', ['id' => $hotel->id]) }}" class="btn btn-outline-primary">Наличие мест</a>
                         </p>
                     </div>
                 </div>
             </div>
-            <div class="hotel-card border rounded-2 p-2">
-                <div class="row">
-                    <div class="col-sm-3">
-                        <img src="/img/appartaments.webp" class="img-thumbnail rounded-start" alt="">
-                    </div>
-                    <div class="col-sm">
-                        <p class="card-title fs-3 fw-bold ">Blue Gilroy Hotel
-                        <p class="location">Old town, Polish, Krakow</p>
-                        </p>
-                        <p class="truncate3 card-text">In the centre of Istanbul, located within a short distance of
-                            Taksim Square and Taksim Metro Station, Cihangir apart hotel offers free WiFi, air
-                            conditioning and household amenities such as a stovetop and kettle. Private parking is
-                            available on site. The apartment features 2 bedrooms, a flat-screen TV with satellite
-                            channels, an equipped kitchen with a dishwasher and a fridge, a washing machine, and 1
-                            bathroom with a shower. Towels and bed linen are provided in the apartment.</p>
-                    </div>
-                    <div class="col-sm-4">
-                        <p class="cost text-end me-4 fs-4">43 333 руб.</p>
-                        <p class="text-end me-4"><a href="/hotelcard" class="btn btn-outline-primary">Наличие мест</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="hotel-card border rounded-2 p-2">
-                <div class="row">
-                    <div class="col-sm-3">
-                        <img src="/img/appartaments.webp" class="img-thumbnail rounded-start" alt="">
-                    </div>
-                    <div class="col-sm">
-                        <p class="card-title fs-3 fw-bold ">Blue Gilroy Hotel
-                        <p class="location">Old town, Polish, Krakow</p>
-                        </p>
-                        <p class="truncate3 card-text">In the centre of Istanbul, located within a short distance of
-                            Taksim Square and Taksim Metro Station, Cihangir apart hotel offers free WiFi, air
-                            conditioning and household amenities such as a stovetop and kettle. Private parking is
-                            available on site. The apartment features 2 bedrooms, a flat-screen TV with satellite
-                            channels, an equipped kitchen with a dishwasher and a fridge, a washing machine, and 1
-                            bathroom with a shower. Towels and bed linen are provided in the apartment.</p>
-                    </div>
-                    <div class="col-sm-4">
-                        <p class="cost text-end me-4 fs-4">43 333 руб.</p>
-                        <p class="text-end me-4"><a href="/hotelcard" class="btn btn-outline-primary">Наличие мест</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
+            @empty
+            <tr>
+                <td colspan="3">Больше нет модераторов</td>
+            </tr>
+            @endforelse
         </div>
+        {{ $hotels->withQueryString()->links('pagination::bootstrap-5') }}
     </div>
     <x-footer></x-footer>
 </body>

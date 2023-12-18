@@ -77,9 +77,8 @@ Route::group(['namespace' => 'Moderator', 'middleware' => 'moderator'], function
 
 Route::get('index/{id}/hotelcard', [MainController::class, 'hotel_card'])->name('hotelcard');
 
-Route::get('catalog', function () {
-    return view('catalog');
-});
+Route::get('catalog',[MainController::class, 'catalog']);
+
 Route::get('create-card', [MainController::class, 'create_card']);
 
 Route::post('create-card/add', function (Request $request) {

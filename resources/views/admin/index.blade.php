@@ -50,7 +50,7 @@
                 </tr>
                 @empty
                 <tr>
-                    <td colspan="3">There are no users.</td>
+                    <td colspan="3">Больше нет модераторов</td>
                 </tr>
                 @endforelse
               </tbody>

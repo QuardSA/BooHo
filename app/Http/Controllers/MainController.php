@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\service;
+use App\Models\placement;
 use App\Models\apartament;
 use App\Models\country;
 use App\Models\type_object;
@@ -19,8 +21,14 @@ class MainController extends Controller
     }
     public function hotel_card($id)
     {
-        $hotel_card = type_object::find($id)->all();
-        return view('hotelcard', ['hotelcard' => $hotel_card]);
+        $hotel_card = type_object::all();
+        $hotel_apart = apartament::find($id)->get();
+        return view('hotelcard', ['hotelcard' => $hotel_card, 'hotel_apart' => $hotel_apart]);
+    }
+
+    public function catalog(){
+        $hotels = type_object::paginate(10);
+        return view('catalog',compact('hotels'));
     }
 
     public function create_card()
