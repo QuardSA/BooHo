@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container mt-5 d-flex flex-wrap">
-      <div class="personal-settings rounded-1 d-flex flex-column border py-3 px-4 mb-3">
+      <div class="personal-settings rounded-1 d-flex flex-column border py-3 px-4 mb-3" style="max-height:16.5rem;">
         <a href="/moderator" class="text-decoration-none text-black"><img src="/img/Orders.svg" alt="" class="me-2">Запросы</a>
         <hr>
         <a href="/moderator/ordersDeny" class="text-decoration-none text-black"><img src="/img/Deny.svg" alt="" class="me-2">Отклонено</a>

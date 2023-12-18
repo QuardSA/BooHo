@@ -14,6 +14,23 @@
         <div class="filter-settings rounded-2 d-flex flex-column border py-2 mb-2">
             <form action="">
                 <div class="filter-position d-flex flex-column gap-1">
+                    Страна
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Россия</option>
+                        <option value="1">ЮАР</option>
+                        <option value="2">Япония</option>
+
+                      </select>
+                </div>
+                <div class="filter-position d-flex flex-column gap-1">
+                      Категория
+                      <select class="form-select" aria-label="Default select example">
+                        <option selected>Дом</option>
+                        <option value="1">Отель</option>
+                      </select>
+                </div>
+                <hr>
+                <div class="filter-position d-flex flex-column gap-1">
                     Цена за сутки
                     <input type="checkbox" class="btn-check" id="До 15 000 р" autocomplete="off">
                     <label class="btn btn-outline-primary" for="До 15 000 р">До 15 000 р</label>
@@ -43,11 +60,18 @@
                     <label class="btn btn-outline-primary" for="Парковка">Парковка</label>
                     <input type="checkbox" class="btn-check" id="Ресепшен 24 часа" autocomplete="off">
                     <label class="btn btn-outline-primary" for="Ресепшен 24 часа">Ресепшен 24 часа</label>
-                    
+                    <input type="checkbox" class="btn-check" id="Ресепшен 24 часа" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="Ресепшен 24 часа">Ресепшен 24 часа</label>
+                    <input type="checkbox" class="btn-check" id="Ресепшен 24 часа" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="Ресепшен 24 часа">Ресепшен 24 часа</label>
+                </div>
+                <hr>
+                <div class="button d-flex justify-content-center">
+                    <button type="button" class="btn btn-outline-primary">Применить</button>
                 </div>
             </form>
         </div>
-        <div class="container d-flex flex-column flex-wrap gap-2 ms-5 justify-content-center"
+        <div class="container d-flex flex-column flex-wrap gap-2 ms-5"
             style="max-width: 70% !important">
             <div class="hotel-card border rounded-2 p-2 ">
                 <div class="row">

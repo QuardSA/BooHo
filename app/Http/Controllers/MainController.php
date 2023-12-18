@@ -63,7 +63,7 @@ class MainController extends Controller
                 'patronymic.required' => 'Поле оьбязательно для заполнения',
                 'patronymic.alpha' => 'Поле должно состоять только из букв',
                 'password.required' => 'Поле обязательно для заполнения',
-                'confirm_password' => 'Поле обязательно для заполнения',
+                'confirm_password.required' => 'Поле обязательно для заполнения',
             ],
         );
         $userInfo = $request->all();
@@ -77,5 +77,35 @@ class MainController extends Controller
         );
         $id->save();
         return redirect('/admin/index');
+    }
+
+    public function edit_user($id)
+    {
+        $edit_user = User::find($id);
+        return view('personal-security', ['info_user'=>$edit_user]);
+    }
+
+    public function passsword_edit(Request $request, User $id){
+        $request -> validate([
+            'password'=> 'required',
+            'confirm_password'=> 'required|same:password',
+        ],
+        [
+            'password.required' => 'Поле необходимо заполнить',
+            'confirm_password.required' => 'Поле необходимо заполнить',
+        ],
+    );
+        $userEdit = $request->only('password');
+        $id ->fill([
+            'password'=> $userEdit['password']
+        ]);
+        $id->save();
+        return redirect()->back()->with('success','Вы изменили пароль изменён');
+    }
+
+    public function delete_account(User $id)
+    {
+        $id ->delete();
+        return redirect('/')->with('success','Ваш аккаунт был удалён');
     }
 }

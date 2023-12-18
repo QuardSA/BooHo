@@ -176,7 +176,7 @@
 
 /* Каталог */
 .filter-settings {
-    max-height: 34rem;
+    max-height: auto;
     min-width: 15rem;
 }
 

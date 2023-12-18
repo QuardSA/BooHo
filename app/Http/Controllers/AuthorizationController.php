@@ -35,7 +35,7 @@ class AuthorizationController extends Controller
                 'patronymic.required' => 'Поле оьбязательно для заполнения',
                 'patronymic.alpha' => 'Поле должно состоять только из букв',
                 'password.required' => 'Поле обязательно для заполнения',
-                'confirm_password' => 'Поле обязательно для заполнения',
+                'confirm_password.required' => 'Поле обязательно для заполнения',
             ],
         );
         $userInfo = $request->all();
@@ -73,7 +73,7 @@ class AuthorizationController extends Controller
 
         if (Auth::attempt(["email" => $user_authorization['email'], "password" => $user_authorization['password']])) {
             if (Auth::user()->role == 1) {
-                return redirect('/admin')->with('success', 'Вы вошли как Администратор');
+                return redirect('/admin/index')->with('success', 'Вы вошли как Администратор');
             }
             elseif(Auth::user()->role == 2){
                 return redirect('/moderator')->with('success', 'Добро пожаловать Модератор');
@@ -113,7 +113,7 @@ class AuthorizationController extends Controller
                 'patronymic.required' => 'Поле оьбязательно для заполнения',
                 'patronymic.alpha' => 'Поле должно состоять только из букв',
                 'password.required' => 'Поле обязательно для заполнения',
-                'confirm_password' => 'Поле обязательно для заполнения',
+                'confirm_password.required' => 'Поле обязательно для заполнения',
             ],
         );
         $userInfo = $request->all();

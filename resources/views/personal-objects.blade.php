@@ -15,7 +15,7 @@
             <a href="/personal-data" class="text-decoration-none text-black"><img src="/img/personal-data.svg"
                     alt="" class="me-2">Персональные данные</a>
             <hr>
-            <a href="/personal-security" class="text-decoration-none text-black"><img src="/img/personal-security.svg"
+            <a href="/personal-security/{{Auth::user()->id}}" class="text-decoration-none text-black"><img src="/img/personal-security.svg"
                     alt="" class="me-2">Безопаснсть</a>
             <hr>
             <a href="/personal-booking" class="text-decoration-none text-black"><img src="/img/personal-booking.svg"

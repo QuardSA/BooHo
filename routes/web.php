@@ -41,9 +41,9 @@ Route::get('personal-booking', function () {
 Route::get('personal-objects', function () {
     return view('personal-objects');
 });
-Route::get('personal-security', function () {
-    return view('personal-security');
-});
+Route::delete('/{id}/delete', [MainController::class, 'delete_account'])->name('delete_account');
+Route::get('/personal-security/{id}',[MainController::class, 'edit_user']);
+Route::post('/personal-security/{id}/passsword_edit',[MainController::class, 'passsword_edit'])->name('passsword_edit');
 
 
 Route::group(['namespace'=> 'Admin','middleware'=>'admin'], function(){
