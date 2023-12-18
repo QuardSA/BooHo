@@ -12,6 +12,6 @@ class country extends Model
 
     public function object_country()
     {
-        return $this->hasMany(type_objects::class, 'country');
+        return $this->hasMany(type_object::class, 'country');
     }
 }

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title_service');
             $table->timestamps();
         });
-        Artisan::call('db:seed', ['--class'=>ServicesSeed::class]);
+        Artisan::call('db:seed', ['--class' => ServicesSeed::class]);
     }
 
     /**

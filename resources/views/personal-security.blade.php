@@ -31,7 +31,8 @@
 			<h2>Безопасность</h2>
 			<table class="table caption-top">
 				<caption>Сменить пароль</caption>
-				<form action="{{route('passsword_edit',['id'=>$info_user->id])}}" method="POST" id="Submit_Changes">
+				<fo
+                rm action="{{route('passsword_edit',['id'=>$info_user->id])}}" method="POST" id="Submit_Changes">
                     @csrf
 					<tbody>
 			  			<tr>

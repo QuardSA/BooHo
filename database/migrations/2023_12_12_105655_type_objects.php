@@ -14,8 +14,11 @@ return new class extends Migration
         Schema::create('type_objects', function (Blueprint $table) {
             $table->id();
             $table->string('title_object');
-            $table->text('tescription');
+            $table->text('description');
+            $table->string('photo');
             $table->foreignId('country')->references('id')->on('countries');
+            $table->foreignId('service')->references('id')->on('services');
+            $table->foreignId('apartament')->references('id')->on('apartaments');
             $table->foreignId('placement')->references('id')->on('type_placements');
             $table->foreignId('category')->references('id')->on('categories');
             $table->string('check_in');

@@ -14,14 +14,12 @@ return new class extends Migration
             $table->string('count_people');
             $table->double('cost');
             $table->string('photo');
-            $table->foreignId('object')->references('id')->on('type_objects');
             $table->timestamps();
         });
     }
 
     /**
-
-Reverse the migrations.*/
+     */
     public function down(): void
     {
         Schema::dropIfExists('apartaments');

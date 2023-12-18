@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('basket', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('apartaments')->references('id')->on('apartaments');
+            $table->foreignId('type_object')->references('id')->on('type_objects');
             $table->foreignId('user')->references('id')->on('users');
             $table->timestamps();
         });
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema:dropIfExists('basket');
+        Schema::dropIfExists('basket');
     }
 };
