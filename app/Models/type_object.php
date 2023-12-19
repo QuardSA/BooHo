@@ -11,7 +11,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class type_object extends Model
 {
-    protected $fillable = ['title_object', 'description', 'country', 'placement','service', 'category','photo', 'apartament', 'check_in', 'check_out', 'user', 'address', 'city'];
+    protected $fillable = ['title_object', 'description', 'country', 'placement', 'service', 'category', 'photo', 'apartament', 'check_in', 'check_out', 'user', 'address', 'city'];
+
+    protected $table = 'type_objects';
 
     public function country_object()
     {
@@ -23,11 +25,12 @@ class type_object extends Model
         return $this->belongsTo(apartament::class, 'apartament');
     }
 
-    public function service_object(){
+    public function service_object()
+    {
         return $this->belongsTo(service::class, 'service');
     }
-    public function placement_object(){
+    public function placement_object()
+    {
         return $this->belongsTo(type_placement::class, 'placement');
     }
-
 }

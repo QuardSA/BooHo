@@ -9,9 +9,11 @@ use App\Models\type_placement;
 use App\Models\apartament;
 use App\Models\country;
 use App\Models\type_object;
+use Brick\Math\BigInteger;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class MainController extends Controller
 {
@@ -234,105 +236,153 @@ class MainController extends Controller
 
     public function edit_hotel_card_validate(Request $request, type_object $id)
     {
-        $request->validate(
-            [
-                'title_object' => 'required',
-                'description' => 'required',
-                'category' => 'required',
-                'service' => 'required',
-                'check_in' => 'required',
-                'placement' => 'required',
-                'check_out' => 'required',
-                'country' => 'required',
-                'city' => 'required',
-                'address' => 'required',
-                'photo_apart' => 'required|image',
-                'title_apartaments' => 'required',
-                'cost' => 'required|numeric',
-                'photo_hotel' => 'required|image',
-                'count_people' => 'required|numeric',
-            ],
-            [
-                'title_object.required' => 'Поле необходимо заполнить',
-                'description.required' => 'Поле необходимо заполнить',
-                'service.required' => 'Поле необходимо заполнить',
-                'category.required' => 'Поле необходимо заполнить',
-                'check_in.required' => 'Поле необходимо заполнить',
-                'placement.required' => 'Поле необходимо заполнить',
-                'check_out.required' => 'Поле необходимо заполнить',
-                'country.required' => 'Поле необходимо заполнить',
-                'city.required' => 'Поле необходимо заполнить',
-                'address.required' => 'Поле необходимо заполнить',
-                'photo_hotel.required' => 'Поле необходимо заполнить',
-                'title_apartaments.required' => 'Поле необходимо заполнить',
-                'cost.required' => 'Поле необходимо заполнить',
-                'photo_apart.required' => 'Поле необходимо заполнить',
-                'count_people.required' => 'Поле необходимо заполнить',
-            ],
-        );
+        // $request->validate(
+        //     [
+        //         'title_object' => 'required',
+        //         'description' => 'required',
+        //         'category' => 'required',
+        //         'service' => 'required',
+        //         'check_in' => 'required',
+        //         'placement' => 'required',
+        //         'check_out' => 'required',
+        //         'country' => 'required',
+        //         'city' => 'required',
+        //         'address' => 'required',
+        //         'photo_apart' => 'required|image',
+        //         'title_apartaments' => 'required',
+        //         'cost' => 'required|numeric',
+        //         'photo_hotel' => 'required|image',
+        //         'count_people' => 'required|numeric',
+        //     ],
+        //     [
+        //         'title_object.required' => 'Поле необходимо заполнить',
+        //         'description.required' => 'Поле необходимо заполнить',
+        //         'service.required' => 'Поле необходимо заполнить',
+        //         'category.required' => 'Поле необходимо заполнить',
+        //         'check_in.required' => 'Поле необходимо заполнить',
+        //         'placement.required' => 'Поле необходимо заполнить',
+        //         'check_out.required' => 'Поле необходимо заполнить',
+        //         'country.required' => 'Поле необходимо заполнить',
+        //         'city.required' => 'Поле необходимо заполнить',
+        //         'address.required' => 'Поле необходимо заполнить',
+        //         'photo_hotel.required' => 'Поле необходимо заполнить',
+        //         'title_apartaments.required' => 'Поле необходимо заполнить',
+        //         'cost.required' => 'Поле необходимо заполнить',
+        //         'photo_apart.required' => 'Поле необходимо заполнить',
+        //         'count_people.required' => 'Поле необходимо заполнить',
+        //     ],
+        // );
 
-        $card = $request->all();
-
-        if ($request->hasFile('photo_hotel') || $request->hasFile('photo_apart')) {
-            $name_hotel = $request->file('photo_hotel')->hashName();
-            $path_hotel = $request->file('photo_hotel')->store('public/images/hotels');
-
-            $name_apart = $request->file('photo_apart')->hashName();
-            $path_apart = $request->file('photo_apart')->store('public/images/apartaments');
+        $update_data = $request->all();
+        $apartaments = apartament::where('id', $update_data['apart'])->first();
+        if ($request->hasFile('photo_hotel')) {
+            $name = $request->file('photo_hotel')->hashName();
+            $store = $request->file('photo_hotel')->store('public/images/hotels');
 
             $id->fill([
-                'type_object' => $card['title_object'],
-                'description' => $card['description'],
-                'photo' => $name_hotel,
-                'country' => $card['country'],
-                'service' => $card['service'],
-                'placement' => $card['placement'],
-                'category' => $card['category'],
-                'check_in' => $card['check_in'],
-                'check_out' => $card['check_out'],
-                'address' => $card['address'],
-                'city' => $card['city'],
+                'title_object' => $update_data['title_object'],
+                'description' => $update_data['description'],
+                'photo' => $name,
+                'country' => $update_data['country'],
+                'service' => $update_data['service'],
+                'placement' => $update_data['placement'],
+                'category' => $update_data['category'],
+                'check_in' => $update_data['check_in'],
+                'check_out' => $update_data['check_out'],
+                'address' => $update_data['address'],
+                'city' => $update_data['city'],
             ]);
-            $apartaments = apartament::where('id', $card['apart']) - first();
 
-            $appartament->fill([
-                'title_appartaments' => $card['title_apartaments'],
-                'count_people' => $card['count_people'],
-                'cost' => $card['cost'],
-                'photo' => $name_apart,
+            $apartaments->fill([
+                'title_appartaments' => $update_data['title_apartaments'],
+                'count_people' => $update_data['count_people'],
+                'cost' => $update_data['cost'],
+                'photo' => $apartaments->photo,
             ]);
+
+            $id->save();
+            $apartaments->save();
         } else {
-            $apartaments = apartament::where('id', $card['apart']) - first();
-
-            $current_photo_hotel = $id->photo;
-            $current_photo_apart = $apartaments->photo;
+            $currentPhoto = $id->photo;
 
             $id->fill([
-                'type_object' => $card['title_object'],
-                'description' => $card['description'],
-                'photo' => $current_photo_hotel,
-                'country' => $card['country'],
-                'service' => $card['service'],
-                'placement' => $card['placement'],
-                'category' => $card['category'],
-                'check_in' => $card['check_in'],
-                'check_out' => $card['check_out'],
-                'address' => $card['address'],
-                'city' => $card['city'],
+                'title_object' => $update_data['title_object'],
+                'description' => $update_data['description'],
+                'photo' => $currentPhoto,
+                'country' => $update_data['country'],
+                'service' => $update_data['service'],
+                'placement' => $update_data['placement'],
+                'category' => $update_data['category'],
+                'check_in' => $update_data['check_in'],
+                'check_out' => $update_data['check_out'],
+                'address' => $update_data['address'],
+                'city' => $update_data['city'],
             ]);
 
-            $appartament->fill([
-                'title_appartaments' => $card['title_apartaments'],
-                'count_people' => $card['count_people'],
-                'cost' => $card['cost'],
-                'photo' => $current_photo_apart,
+            $apartaments->fill([
+                'title_appartaments' => $update_data['title_apartaments'],
+                'count_people' => $update_data['count_people'],
+                'cost' => $update_data['cost'],
+                'photo' => $apartaments->photo,
             ]);
+            $id->save();
+            $apartaments->save();
         }
-        $id->save();
-        $appartaments->save();
 
-        return redirect()
-            ->back()
-            ->with('success', 'Вы изменили пароль изменён');
+        if ($request->hasFile('photo_apart')) {
+            $name = $request->file('photo_apart')->hashName();
+            $store = $request->file('photo_apart')->store('public/images/apartaments');
+
+            $id->fill([
+                'title_object' => $update_data['title_object'],
+                'description' => $update_data['description'],
+                'photo' => $id->photo,
+                'country' => $update_data['country'],
+                'service' => $update_data['service'],
+                'placement' => $update_data['placement'],
+                'category' => $update_data['category'],
+                'check_in' => $update_data['check_in'],
+                'check_out' => $update_data['check_out'],
+                'address' => $update_data['address'],
+                'city' => $update_data['city'],
+            ]);
+
+            $apartaments->fill([
+                'title_appartaments' => $update_data['title_apartaments'],
+                'count_people' => $update_data['count_people'],
+                'cost' => $update_data['cost'],
+                'photo' => $name,
+            ]);
+
+            $id->save();
+            $apartaments->save();
+        } else {
+            $currentPhoto = $id->photo;
+
+            $id->fill([
+                'title_object' => $update_data['title_object'],
+                'description' => $update_data['description'],
+                'photo' => $currentPhoto,
+                'country' => $update_data['country'],
+                'service' => $update_data['service'],
+                'placement' => $update_data['placement'],
+                'category' => $update_data['category'],
+                'check_in' => $update_data['check_in'],
+                'check_out' => $update_data['check_out'],
+                'address' => $update_data['address'],
+                'city' => $update_data['city'],
+            ]);
+
+            $apartaments->fill([
+                'title_appartaments' => $update_data['title_apartaments'],
+                'count_people' => $update_data['count_people'],
+                'cost' => $update_data['cost'],
+                'photo' => $apartaments->photo,
+            ]);
+            $id->save();
+            $apartaments->save();
+        }
+
+        return redirect()->back()->with('success', 'Данные обновлены!');
     }
 }

@@ -20,14 +20,14 @@
                         <option value="1">ЮАР</option>
                         <option value="2">Япония</option>
 
-                      </select>
+                    </select>
                 </div>
                 <div class="filter-position d-flex flex-column gap-1">
-                      Категория
-                      <select class="form-select" aria-label="Default select example">
+                    Категория
+                    <select class="form-select" aria-label="Default select example">
                         <option selected>Дом</option>
                         <option value="1">Отель</option>
-                      </select>
+                    </select>
                 </div>
                 <hr>
                 <div class="filter-position d-flex flex-column gap-1">
@@ -71,31 +71,32 @@
                 </div>
             </form>
         </div>
-        <div class="container d-flex flex-column flex-wrap gap-2 ms-5"
-            style="max-width: 70% !important">
+        <div class="container d-flex flex-column flex-wrap gap-2 ms-5" style="max-width: 70% !important">
             @forelse ($hotels as $hotel)
-            <div class="hotel-card border rounded-2 p-2 ">
-                <div class="row">
-                    <div class="col-sm-3">
-                        <img src="/img/{{$hotel->photo}}" class="img-thumbnail rounded-start" alt="">
-                    </div>
-                    <div class="col-sm">
-                        <p class="card-title fs-3 fw-bold ">{{$hotel->title_object}}
-                        <p class="location">{{$hotel->title_object}}</p>
-                        </p>
-                        <p class="truncate3 card-text">{{$hotel->description}}</p>
-                    </div>
-                    <div class="col-sm-4">
-                        <p class="cost text-end me-4 fs-4">{{$hotel->apartament_object->cost}} руб</p>
-                        <p class="text-end me-4"><a href="{{ route('hotelcard', ['id' => $hotel->id]) }}" class="btn btn-outline-primary">Наличие мест</a>
-                        </p>
+                <div class="hotel-card border rounded-2 p-2 ">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <img src="/storage/images/hotels/{{ $hotel->photo }}" class="img-thumbnail rounded-start"
+                                alt="">
+                        </div>
+                        <div class="col-sm">
+                            <p class="card-title fs-3 fw-bold ">{{ $hotel->title_object }}
+                            <p class="location">{{ $hotel->title_object }}</p>
+                            </p>
+                            <p class="truncate3 card-text">{{ $hotel->description }}</p>
+                        </div>
+                        <div class="col-sm-4">
+                            <p class="cost text-end me-4 fs-4">{{ $hotel->apartament_object->cost }} руб</p>
+                            <p class="text-end me-4"><a href="{{ route('hotelcard', ['id' => $hotel->id]) }}"
+                                    class="btn btn-outline-primary">Наличие мест</a>
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
             @empty
-            <tr>
-                <td colspan="3">Больше нет товаров</td>
-            </tr>
+                <tr>
+                    <td colspan="3">Больше нет товаров</td>
+                </tr>
             @endforelse
         </div>
         {{ $hotels->withQueryString()->links('pagination::bootstrap-5') }}

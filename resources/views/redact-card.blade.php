@@ -115,7 +115,7 @@
                 <h4 class="mt-3">Фотографии</h4>
                 <div class="mb-3">
                     <label for="fileupload" class="form-label">Выберите фотографию</label>
-                    <input class="form-control" type="file" id="fileuploud" name="photo" value="photo_hotel"
+                    <input class="form-control" type="file" id="fileuploud" name="photo_hotel"
                         style="max-width: 20rem">
                     @error('photo')
                         <div class="alert alert-danger" role="alert">{{ $message }}</div>
@@ -140,7 +140,7 @@
                         <div class="mb-3">
                             <label for="fileupload" class="form-label">Выберите фотографию</label>
                             <input class="form-control" type="file" id="fileupload" name="photo_apart"
-                                value="photo" style="max-width: 20rem">
+                                style="max-width: 20rem">
                             @error('photo')
                                 <div class="alert alert-danger" role="alert">{{ $message }}</div>
                             @enderror
@@ -159,7 +159,14 @@
                 аппартаменты</button> --}}
             <button type="submit" form="add_card"
                 class="btn btn-outline-primary m-auto my-3 align-self-left">Редактировать</button>
-
+            @if (session('success'))
+                <div class="alert alert-success alert-dismissible mt-3">
+                    <div class="alert-text">
+                        {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                </div>
+            @endif
         </div>
     </div>
     <x-footer></x-footer>
