@@ -38,7 +38,7 @@ Route::get('personal-data', function () {
 Route::get('personal-booking', function () {
     return view('personal-booking');
 });
-Route::get('personal-objects',[MainController::class, 'personal_objects']);
+Route::get('personal-objects', [MainController::class, 'personal_objects']);
 Route::get('personal-objects/{id}/redact-card', [MainController::class, 'edit_hotel_card']);
 Route::delete('/{id}/delete_object', [MainController::class, 'delete_hotel_card'])->name('delete_object');
 Route::delete('/{id}/delete', [MainController::class, 'delete_account'])->name('delete_account');
@@ -77,11 +77,13 @@ Route::group(['namespace' => 'Moderator', 'middleware' => 'moderator'], function
 
 Route::get('index/{id}/hotelcard', [MainController::class, 'hotel_card'])->name('hotelcard');
 
-Route::get('catalog',[MainController::class, 'catalog']);
+Route::get('catalog', [MainController::class, 'catalog']);
 
 Route::get('create-card', [MainController::class, 'create_card']);
 
 Route::post('create_card_valid', [MainController::class, 'create_card_valid']);
+
+Route::patch('/editCards/{id}', [MainController::class, 'edit_hotel_card_validate']);
 
 Route::get('redact-card', function () {
     return view('redact-card');

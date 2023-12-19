@@ -28,9 +28,10 @@ class MainController extends Controller
         return view('hotelcard', ['hotelcard' => $hotel_card, 'hotel_apart' => $hotel_apart]);
     }
 
-    public function catalog(){
+    public function catalog()
+    {
         $hotels = type_object::paginate(10);
-        return view('catalog',compact('hotels'));
+        return view('catalog', compact('hotels'));
     }
 
     public function moderators()
@@ -129,56 +130,65 @@ class MainController extends Controller
         $country = country::all();
         $service = service::all();
         $placement = type_placement::all();
-        return view('create-card',['categories'=>$category,'countries'=>$country,'services'=>$service,'placements'=>$placement]);
+        return view('create-card', ['categories' => $category, 'countries' => $country, 'services' => $service, 'placements' => $placement]);
     }
     public function create_card_valid(Request $request)
-
     {
-        $request->validate([
-            'title_object'=>'required',
-            'description'=>'required',
-            'category'=>'required',
-            'service'=>'required',
-            'check_in'=>'required',
-            'placement'=>'required',
-            'check_out'=>'required',
-            'country'=>'required',
-            'city'=>'required',
-            'address'=>'required',
-            'photo'=>'required',
-            'title_apartaments'=>'required',
-            'cost'=>'required',
-            'photo'=>'required',
-            'count_people'=>'required',
-        ],[
-            'title_object.required'=>'Поле необходимо заполнить',
-            'description.required'=>'Поле необходимо заполнить',
-            'service.required'=>'Поле необходимо заполнить',
-            'category.required'=>'Поле необходимо заполнить',
-            'check_in.required'=>'Поле необходимо заполнить',
-            'placement.required'=>'Поле необходимо заполнить',
-            'check_out.required'=>'Поле необходимо заполнить',
-            'country.required'=>'Поле необходимо заполнить',
-            'city.required'=>'Поле необходимо заполнить',
-            'address.required'=>'Поле необходимо заполнить',
-            'photo.required'=>'Поле необходимо заполнить',
-            'title_apartaments.required'=>'Поле необходимо заполнить',
-            'cost.required'=>'Поле необходимо заполнить',
-            'photo.required'=>'Поле необходимо заполнить',
-            'count_people.required'=>'Поле необходимо заполнить',
-        ]);
+        $request->validate(
+            [
+                'title_object' => 'required',
+                'description' => 'required',
+                'category' => 'required',
+                'service' => 'required',
+                'check_in' => 'required',
+                'placement' => 'required',
+                'check_out' => 'required',
+                'country' => 'required',
+                'city' => 'required',
+                'address' => 'required',
+                'photo_apart' => 'required|image',
+                'title_apartaments' => 'required',
+                'cost' => 'required|numeric',
+                'photo_hotel' => 'required|image',
+                'count_people' => 'required|numeric',
+            ],
+            [
+                'title_object.required' => 'Поле необходимо заполнить',
+                'description.required' => 'Поле необходимо заполнить',
+                'service.required' => 'Поле необходимо заполнить',
+                'category.required' => 'Поле необходимо заполнить',
+                'check_in.required' => 'Поле необходимо заполнить',
+                'placement.required' => 'Поле необходимо заполнить',
+                'check_out.required' => 'Поле необходимо заполнить',
+                'country.required' => 'Поле необходимо заполнить',
+                'city.required' => 'Поле необходимо заполнить',
+                'address.required' => 'Поле необходимо заполнить',
+                'photo_hotel.required' => 'Поле необходимо заполнить',
+                'title_apartaments.required' => 'Поле необходимо заполнить',
+                'cost.required' => 'Поле необходимо заполнить',
+                'photo_apart.required' => 'Поле необходимо заполнить',
+                'count_people.required' => 'Поле необходимо заполнить',
+            ],
+        );
         $hotelInfo = $request->all();
-        $apartsCreate=apartament::create([
+
+        $name_hotel = $request->file('photo_hotel')->hashName();
+        $path_hotel = $request->file('photo_hotel')->store('public/images/hotels');
+
+        $name_apart = $request->file('photo_apart')->hashName();
+        $path_apart = $request->file('photo_apart')->store('public/images/apartaments');
+
+        $apartsCreate = apartament::create([
             'title_apartaments' => $hotelInfo['title_apartaments'],
             'cost' => $hotelInfo['cost'],
-            'photo' => $hotelInfo['photo'],
+            'photo' => $name_apart,
             'count_people' => $hotelInfo['count_people'],
         ]);
-        $hotelCreate =   type_object::create([
+        $hotelCreate = type_object::create([
             'title_object' => $hotelInfo['title_object'],
             'description' => $hotelInfo['description'],
             'category' => $hotelInfo['category'],
-            'apartament' =>$apartsCreate->id,
+            'apartament' => $apartsCreate->id,
             'service' => $hotelInfo['service'],
             'placement' => $hotelInfo['placement'],
             'check_in' => $hotelInfo['check_in'],
@@ -187,9 +197,8 @@ class MainController extends Controller
             'user' => Auth::user()->id,
             'city' => $hotelInfo['city'],
             'address' => $hotelInfo['address'],
-            'photo' => $hotelInfo['photo'],
+            'photo' => $name_hotel,
         ]);
-
 
         if ($hotelCreate) {
             return redirect('/personal-objects')->with('success', 'Вы добавили свой объект');
@@ -201,7 +210,8 @@ class MainController extends Controller
     public function personal_objects()
     {
         $objects = type_object::paginate(5);
-        return view('personal-objects', compact('objects'));
+
+        return view('personal-objects', ['objects' => $objects]);
     }
     public function delete_hotel_card(type_object $id)
     {
@@ -210,60 +220,117 @@ class MainController extends Controller
     }
     public function edit_hotel_card($id)
     {
+        $type_object = type_object::where('id', $id)
+            ->with('country_object', 'apartament_object', 'service_object', 'placement_object')
+            ->get()
+            ->first();
 
         $category = category::all();
         $country = country::all();
         $service = service::all();
         $placement = type_placement::all();
-        $hotel_cards = type_object::all();
-        return view('redact-card', [
-            'hotel_card' => $hotel_cards,
-            'categories' => $category,
-            'countries' => $country,
-            'services' => $service,
-            'placements' => $placement
-        ]);
+        return view('redact-card', ['categories' => $category, 'countries' => $country, 'services' => $service, 'placements' => $placement, 'object' => $type_object]);
     }
 
-    public function edit_hotel_card_validate(Request $request, type_object $id){
-        $request->validate([
-            'title_object'=>'required',
-            'description'=>'required',
-            'category'=>'required',
-            'service'=>'required',
-            'check_in'=>'required',
-            'placement'=>'required',
-            'check_out'=>'required',
-            'country'=>'required',
-            'city'=>'required',
-            'address'=>'required',
-            'photo'=>'required',
-            'title_apartaments'=>'required',
-            'cost'=>'required',
-            'photo'=>'required',
-            'count_people'=>'required',
-        ],[
-            'title_object.required'=>'Поле необходимо заполнить',
-            'description.required'=>'Поле необходимо заполнить',
-            'service.required'=>'Поле необходимо заполнить',
-            'category.required'=>'Поле необходимо заполнить',
-            'check_in.required'=>'Поле необходимо заполнить',
-            'placement.required'=>'Поле необходимо заполнить',
-            'check_out.required'=>'Поле необходимо заполнить',
-            'country.required'=>'Поле необходимо заполнить',
-            'city.required'=>'Поле необходимо заполнить',
-            'address.required'=>'Поле необходимо заполнить',
-            'photo.required'=>'Поле необходимо заполнить',
-            'title_apartaments.required'=>'Поле необходимо заполнить',
-            'cost.required'=>'Поле необходимо заполнить',
-            'photo.required'=>'Поле необходимо заполнить',
-            'count_people.required'=>'Поле необходимо заполнить',
-        ]);
+    public function edit_hotel_card_validate(Request $request, type_object $id)
+    {
+        $request->validate(
+            [
+                'title_object' => 'required',
+                'description' => 'required',
+                'category' => 'required',
+                'service' => 'required',
+                'check_in' => 'required',
+                'placement' => 'required',
+                'check_out' => 'required',
+                'country' => 'required',
+                'city' => 'required',
+                'address' => 'required',
+                'photo_apart' => 'required|image',
+                'title_apartaments' => 'required',
+                'cost' => 'required|numeric',
+                'photo_hotel' => 'required|image',
+                'count_people' => 'required|numeric',
+            ],
+            [
+                'title_object.required' => 'Поле необходимо заполнить',
+                'description.required' => 'Поле необходимо заполнить',
+                'service.required' => 'Поле необходимо заполнить',
+                'category.required' => 'Поле необходимо заполнить',
+                'check_in.required' => 'Поле необходимо заполнить',
+                'placement.required' => 'Поле необходимо заполнить',
+                'check_out.required' => 'Поле необходимо заполнить',
+                'country.required' => 'Поле необходимо заполнить',
+                'city.required' => 'Поле необходимо заполнить',
+                'address.required' => 'Поле необходимо заполнить',
+                'photo_hotel.required' => 'Поле необходимо заполнить',
+                'title_apartaments.required' => 'Поле необходимо заполнить',
+                'cost.required' => 'Поле необходимо заполнить',
+                'photo_apart.required' => 'Поле необходимо заполнить',
+                'count_people.required' => 'Поле необходимо заполнить',
+            ],
+        );
+
         $card = $request->all();
-        $id->fill([
-            'password' => $card['password'],
-        ]);
+
+        if ($request->hasFile('photo_hotel') || $request->hasFile('photo_apart')) {
+            $name_hotel = $request->file('photo_hotel')->hashName();
+            $path_hotel = $request->file('photo_hotel')->store('public/images/hotels');
+
+            $name_apart = $request->file('photo_apart')->hashName();
+            $path_apart = $request->file('photo_apart')->store('public/images/apartaments');
+
+            $id->fill([
+                'type_object' => $card['title_object'],
+                'description' => $card['description'],
+                'photo' => $name_hotel,
+                'country' => $card['country'],
+                'service' => $card['service'],
+                'placement' => $card['placement'],
+                'category' => $card['category'],
+                'check_in' => $card['check_in'],
+                'check_out' => $card['check_out'],
+                'address' => $card['address'],
+                'city' => $card['city'],
+            ]);
+            $apartaments = apartament::where('id', $card['apart']) - first();
+
+            $appartament->fill([
+                'title_appartaments' => $card['title_apartaments'],
+                'count_people' => $card['count_people'],
+                'cost' => $card['cost'],
+                'photo' => $name_apart,
+            ]);
+        } else {
+            $apartaments = apartament::where('id', $card['apart']) - first();
+
+            $current_photo_hotel = $id->photo;
+            $current_photo_apart = $apartaments->photo;
+
+            $id->fill([
+                'type_object' => $card['title_object'],
+                'description' => $card['description'],
+                'photo' => $current_photo_hotel,
+                'country' => $card['country'],
+                'service' => $card['service'],
+                'placement' => $card['placement'],
+                'category' => $card['category'],
+                'check_in' => $card['check_in'],
+                'check_out' => $card['check_out'],
+                'address' => $card['address'],
+                'city' => $card['city'],
+            ]);
+
+            $appartament->fill([
+                'title_appartaments' => $card['title_apartaments'],
+                'count_people' => $card['count_people'],
+                'cost' => $card['cost'],
+                'photo' => $current_photo_apart,
+            ]);
+        }
         $id->save();
+        $appartaments->save();
+
         return redirect()
             ->back()
             ->with('success', 'Вы изменили пароль изменён');
