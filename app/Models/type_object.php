@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class type_object extends Model
 {
-    protected $fillable = ['title_object', 'description', 'country', 'placement','service', 'category', 'apartament', 'check_in', 'check_out', 'user', 'address', 'city'];
+    protected $fillable = ['title_object', 'description', 'country', 'placement','service', 'category','photo', 'apartament', 'check_in', 'check_out', 'user', 'address', 'city'];
 
     public function country_object()
     {

@@ -15,7 +15,7 @@
             <h1 class="mt-5">Найдите жильё для новой поездки</h1>
             <h2 class="">Ищите предложения на отели и дома</h2>
             {{-- Поиск --}}
-            @php
+            {{-- @php
                 $curentDate = date('Y-m-d');
             @endphp
             <div class="search mx-auto mt-5 d-flex justify-content-center">
@@ -32,7 +32,7 @@
                     </div>
                     <button type="button" class="btn btn-primary py-1 my-1 px-2 fs-3">Найти</button>
                 </form>
-            </div>
+            </div> --}}
             {{-- Основной блок --}}
             <div class="info ">
                 <h3 class="mt-4">Популярные направления</h3>

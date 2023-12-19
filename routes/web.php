@@ -38,9 +38,9 @@ Route::get('personal-data', function () {
 Route::get('personal-booking', function () {
     return view('personal-booking');
 });
-Route::get('personal-objects', function () {
-    return view('personal-objects');
-});
+Route::get('personal-objects',[MainController::class, 'personal_objects']);
+Route::get('personal-objects/{id}/redact-card', [MainController::class, 'edit_hotel_card']);
+Route::delete('/{id}/delete_object', [MainController::class, 'delete_hotel_card'])->name('delete_object');
 Route::delete('/{id}/delete', [MainController::class, 'delete_account'])->name('delete_account');
 Route::get('/personal-security/{id}', [MainController::class, 'edit_user']);
 Route::post('/personal-security/{id}/passsword_edit', [MainController::class, 'passsword_edit'])->name('passsword_edit');
@@ -81,9 +81,8 @@ Route::get('catalog',[MainController::class, 'catalog']);
 
 Route::get('create-card', [MainController::class, 'create_card']);
 
-Route::post('create-card/add', function (Request $request) {
-    dd($request);
-});
+Route::post('create_card_valid', [MainController::class, 'create_card_valid']);
+
 Route::get('redact-card', function () {
     return view('redact-card');
 });

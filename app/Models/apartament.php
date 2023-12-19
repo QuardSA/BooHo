@@ -12,6 +12,6 @@ class apartament extends Model
 
     public function object_appartaments()
     {
-        return $this->hasMany(type_object::class, 'apartament');
+        return $this->hasMany(type_object::class, 'apartament','id');
     }
 }

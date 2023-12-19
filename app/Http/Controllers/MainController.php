@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\category;
 use App\Models\service;
-use App\Models\placement;
+use App\Models\type_placement;
 use App\Models\apartament;
 use App\Models\country;
 use App\Models\type_object;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MainController extends Controller
 {
@@ -21,19 +23,14 @@ class MainController extends Controller
     }
     public function hotel_card($id)
     {
-        $hotel_card = type_object::all();
-        $hotel_apart = apartament::find($id)->get();
+        $hotel_card = type_object::find($id);
+        $hotel_apart = apartament::find($id);
         return view('hotelcard', ['hotelcard' => $hotel_card, 'hotel_apart' => $hotel_apart]);
     }
 
     public function catalog(){
         $hotels = type_object::paginate(10);
         return view('catalog',compact('hotels'));
-    }
-
-    public function create_card()
-    {
-        return view('create-card');
     }
 
     public function moderators()
@@ -124,5 +121,151 @@ class MainController extends Controller
     {
         $id->delete();
         return redirect('/')->with('success', 'Ваш аккаунт был удалён');
+    }
+
+    public function create_card()
+    {
+        $category = category::all();
+        $country = country::all();
+        $service = service::all();
+        $placement = type_placement::all();
+        return view('create-card',['categories'=>$category,'countries'=>$country,'services'=>$service,'placements'=>$placement]);
+    }
+    public function create_card_valid(Request $request)
+
+    {
+        $request->validate([
+            'title_object'=>'required',
+            'description'=>'required',
+            'category'=>'required',
+            'service'=>'required',
+            'check_in'=>'required',
+            'placement'=>'required',
+            'check_out'=>'required',
+            'country'=>'required',
+            'city'=>'required',
+            'address'=>'required',
+            'photo'=>'required',
+            'title_apartaments'=>'required',
+            'cost'=>'required',
+            'photo'=>'required',
+            'count_people'=>'required',
+        ],[
+            'title_object.required'=>'Поле необходимо заполнить',
+            'description.required'=>'Поле необходимо заполнить',
+            'service.required'=>'Поле необходимо заполнить',
+            'category.required'=>'Поле необходимо заполнить',
+            'check_in.required'=>'Поле необходимо заполнить',
+            'placement.required'=>'Поле необходимо заполнить',
+            'check_out.required'=>'Поле необходимо заполнить',
+            'country.required'=>'Поле необходимо заполнить',
+            'city.required'=>'Поле необходимо заполнить',
+            'address.required'=>'Поле необходимо заполнить',
+            'photo.required'=>'Поле необходимо заполнить',
+            'title_apartaments.required'=>'Поле необходимо заполнить',
+            'cost.required'=>'Поле необходимо заполнить',
+            'photo.required'=>'Поле необходимо заполнить',
+            'count_people.required'=>'Поле необходимо заполнить',
+        ]);
+        $hotelInfo = $request->all();
+        $apartsCreate=apartament::create([
+            'title_apartaments' => $hotelInfo['title_apartaments'],
+            'cost' => $hotelInfo['cost'],
+            'photo' => $hotelInfo['photo'],
+            'count_people' => $hotelInfo['count_people'],
+        ]);
+        $hotelCreate =   type_object::create([
+            'title_object' => $hotelInfo['title_object'],
+            'description' => $hotelInfo['description'],
+            'category' => $hotelInfo['category'],
+            'apartament' =>$apartsCreate->id,
+            'service' => $hotelInfo['service'],
+            'placement' => $hotelInfo['placement'],
+            'check_in' => $hotelInfo['check_in'],
+            'check_out' => $hotelInfo['check_out'],
+            'country' => $hotelInfo['country'],
+            'user' => Auth::user()->id,
+            'city' => $hotelInfo['city'],
+            'address' => $hotelInfo['address'],
+            'photo' => $hotelInfo['photo'],
+        ]);
+
+
+        if ($hotelCreate) {
+            return redirect('/personal-objects')->with('success', 'Вы добавили свой объект');
+        } else {
+            return redirect('/create-card')->with('error', 'Ошибка добавления');
+        }
+    }
+
+    public function personal_objects()
+    {
+        $objects = type_object::paginate(5);
+        return view('personal-objects', compact('objects'));
+    }
+    public function delete_hotel_card(type_object $id)
+    {
+        $id->delete();
+        return redirect('/personal-objects');
+    }
+    public function edit_hotel_card($id)
+    {
+
+        $category = category::all();
+        $country = country::all();
+        $service = service::all();
+        $placement = type_placement::all();
+        $hotel_cards = type_object::all();
+        return view('redact-card', [
+            'hotel_card' => $hotel_cards,
+            'categories' => $category,
+            'countries' => $country,
+            'services' => $service,
+            'placements' => $placement
+        ]);
+    }
+
+    public function edit_hotel_card_validate(Request $request, type_object $id){
+        $request->validate([
+            'title_object'=>'required',
+            'description'=>'required',
+            'category'=>'required',
+            'service'=>'required',
+            'check_in'=>'required',
+            'placement'=>'required',
+            'check_out'=>'required',
+            'country'=>'required',
+            'city'=>'required',
+            'address'=>'required',
+            'photo'=>'required',
+            'title_apartaments'=>'required',
+            'cost'=>'required',
+            'photo'=>'required',
+            'count_people'=>'required',
+        ],[
+            'title_object.required'=>'Поле необходимо заполнить',
+            'description.required'=>'Поле необходимо заполнить',
+            'service.required'=>'Поле необходимо заполнить',
+            'category.required'=>'Поле необходимо заполнить',
+            'check_in.required'=>'Поле необходимо заполнить',
+            'placement.required'=>'Поле необходимо заполнить',
+            'check_out.required'=>'Поле необходимо заполнить',
+            'country.required'=>'Поле необходимо заполнить',
+            'city.required'=>'Поле необходимо заполнить',
+            'address.required'=>'Поле необходимо заполнить',
+            'photo.required'=>'Поле необходимо заполнить',
+            'title_apartaments.required'=>'Поле необходимо заполнить',
+            'cost.required'=>'Поле необходимо заполнить',
+            'photo.required'=>'Поле необходимо заполнить',
+            'count_people.required'=>'Поле необходимо заполнить',
+        ]);
+        $card = $request->all();
+        $id->fill([
+            'password' => $card['password'],
+        ]);
+        $id->save();
+        return redirect()
+            ->back()
+            ->with('success', 'Вы изменили пароль изменён');
     }
 }

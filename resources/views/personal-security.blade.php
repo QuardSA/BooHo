@@ -16,13 +16,14 @@
 			<hr>
 			<a href="/personal-booking" class="text-decoration-none text-black"><img src="/img/personal-booking.svg" alt="" class="me-2">Моя бронь</a>
 			<hr>
+            <a href="/personal-objects" class="text-decoration-none text-black"><img src="/img/personal-objects.svg"
+                alt="" class="me-2">Мои объекты</a>
+			<hr>
             <form action="{{route('delete_account',['id' => Auth::user()->id])}}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="text-decoration-none text-black btn btn-link px-0"><img src="/img/personal-objects.svg" alt="" class="me-2">Мои объекты</button>
+                <button type="submit" class="text-decoration-none text-black btn btn-link px-0 py-0"><img src="/img/perosonal-delete-account.svg" alt="" class="me-2">Удалить аккаунт</button>
             </form>
-			<hr>
-			<a href="#" class="text-decoration-none text-black"><img src="/img/perosonal-delete-account.svg" alt="" class="me-2">Удалить аккаунт</a>
 			<hr>
 			<a href="/sign_out" class="text-decoration-none text-black"><img src="/img/sign-out.svg" alt="" class="me-2">Выйти из аккаунта</a>
 			<hr>
@@ -31,8 +32,7 @@
 			<h2>Безопасность</h2>
 			<table class="table caption-top">
 				<caption>Сменить пароль</caption>
-				<fo
-                rm action="{{route('passsword_edit',['id'=>$info_user->id])}}" method="POST" id="Submit_Changes">
+				<form>
                     @csrf
 					<tbody>
 			  			<tr>

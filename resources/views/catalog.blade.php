@@ -94,7 +94,7 @@
             </div>
             @empty
             <tr>
-                <td colspan="3">Больше нет модераторов</td>
+                <td colspan="3">Больше нет товаров</td>
             </tr>
             @endforelse
         </div>
