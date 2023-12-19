@@ -15,7 +15,7 @@
 
 
         <div class="img">
-            <img src="/img/{{$hotelcard->photo}}" alt="" style="max-width: 62%">
+            <img src="/storage/images/hotels/{{$hotelcard->photo}}" alt="" style="max-width: 62%">
         </div>
         <div class="info-hotel-card d-flex position-relative">
             <div class="info" style="max-width: 65%;">
@@ -49,7 +49,7 @@
                         <div class="card mb-3" style="max-width: 100%;">
                             <div class="row g-0">
                                 <div class="col-md-4">
-                                    <img src="/img/{{$hotel_apart->photo}}" class="img-fluid rounded-start" alt="...">
+                                    <img src="/storage/images/apartaments/{{$hotel_apart->photo}}" class="img-fluid rounded-start" alt="...">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
@@ -60,7 +60,11 @@
                                         <p class="card-text fs-semibold fs-4 text-end">
                                             {{$hotel_apart->cost}} руб
                                         </p>
-                                        <p class="text-end"><a href="" class="btn btn-secondary">Выбрать номер</a></p>
+                                        <p class="text-end">
+                                            <form action="{{ route('add.to.cart', ['id' => $hotel_apart->id]) }}" method="post">
+                                                @csrf
+                                                <button href="" class="btn btn-secondary">Выбрать номер</button>
+                                            </form></p>
                                     </div>
                                 </div>
                             </div>

@@ -8,6 +8,7 @@ use App\Models\service;
 use App\Models\type_placement;
 use App\Models\apartament;
 use App\Models\country;
+use App\Models\order;
 use App\Models\type_object;
 use Brick\Math\BigInteger;
 use Illuminate\Support\Facades\Hash;
@@ -18,11 +19,12 @@ use Illuminate\Support\Facades\Log;
 class MainController extends Controller
 {
     public function country()
-    {
-        $countries = country::take(4)->get();
-        $objects = type_object::take(4)->get();
-        return view('index', ['countries' => $countries, 'objects' => $objects]);
-    }
+{
+    $countries = Country::take(4)->get();
+
+    $objects = order::where('status', 3)->with('object_order')->first();
+    return view('index', ['countries' => $countries, 'objects' => $objects]);
+}
     public function hotel_card($id)
     {
         $hotel_card = type_object::find($id);
@@ -201,9 +203,12 @@ class MainController extends Controller
             'address' => $hotelInfo['address'],
             'photo' => $name_hotel,
         ]);
-
-        if ($hotelCreate) {
-            return redirect('/personal-objects')->with('success', 'Вы добавили свой объект');
+        $orderCreate = Order::create([
+        'object' => $hotelCreate->id,
+        'status' => '1',
+        ]);
+        if ($orderCreate) {
+            return redirect('/personal-objects')->with('Order',$orderCreate->id);
         } else {
             return redirect('/create-card')->with('error', 'Ошибка добавления');
         }
@@ -385,4 +390,43 @@ class MainController extends Controller
 
         return redirect()->back()->with('success', 'Данные обновлены!');
     }
+
+    public function order(){
+        $order = order::where('status', 1)->paginate(5);
+        return view('moderator.ordersNew',['orders'=>$order]);
+    }
+    public function order_success(){
+        $order_success = order::where('status', 2)->paginate(5);
+        return view('moderator.ordersAcces',['orders'=>$order_success]);
+    }
+    public function order_deny(){
+        $order_deny = order::where('status', 3)->paginate(5);
+        return view('moderator.ordersDeny',['orders'=>$order_deny]);
+    }
+
+    public function order_Deny_button($id){
+        $order = Order::find($id);
+
+        if ($order) {
+            $order->update(['status' => 3]);
+
+            return redirect()->back()->with('success', 'Вы отклонили запрос');
+        } else {
+            return redirect()->back()->with('error', 'Ошибка: заказ не найден');
+        }
+
+    }
+    public function order_Success_button($id){
+        $order = Order::find($id);
+
+        if ($order) {
+            $order->update(['status' => 2]);
+
+            return redirect()->back()->with('success', 'Вы отклонили запрос');
+        } else {
+            return redirect()->back()->with('error', 'Ошибка: заказ не найден');
+        }
+
+    }
+
 }

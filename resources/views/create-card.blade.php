@@ -154,6 +154,7 @@
             <button type="submit" form="add_card"
                 class="btn btn-outline-primary m-auto my-3 align-self-left">Разместить
                 объявление</button>
+                {{session("Order")}}
 
         </div>
     </div>

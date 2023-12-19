@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthorizationController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\CartController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -35,9 +36,6 @@ Route::get('/', [MainController::class, 'country']);
 Route::get('personal-data', function () {
     return view('personal-data');
 });
-Route::get('personal-booking', function () {
-    return view('personal-booking');
-});
 Route::get('personal-objects', [MainController::class, 'personal_objects']);
 Route::get('personal-objects/{id}/redact-card', [MainController::class, 'edit_hotel_card']);
 Route::delete('/{id}/delete_object', [MainController::class, 'delete_hotel_card'])->name('delete_object');
@@ -63,16 +61,21 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'admin'], function () {
 });
 
 Route::group(['namespace' => 'Moderator', 'middleware' => 'moderator'], function () {
+    Route::get('moderator/ordersAcces',[MainController::class, 'order_success']);
+    // Route::get('moderator/ordersAcces', function () {
+    //     return view('moderator.ordersAcces');
+    // });
+    Route::get('moderator/ordersDeny',[MainController::class, 'order_deny']);
+    // Route::get('moderator/ordersDeny', function () {
+    //     return view('moderator.ordersDeny');
+    // });
 
-    Route::get('moderator/ordersAcces', function () {
-        return view('moderator.ordersAcces');
-    });
-    Route::get('moderator/ordersDeny', function () {
-        return view('moderator.ordersDeny');
-    });
-    Route::get('moderator', function () {
-        return view('moderator.ordersNew');
-    });
+    Route::get('moderator/ordersNew',[MainController::class, 'order']);
+    Route::get('moderator/ordersNew/{id}/order_Deny_button',[MainController::class, 'order_Deny_button']);
+    Route::get('moderator/ordersNew/{id}/order_Success_button',[MainController::class, 'order_Success_button']);
+    // Route::get('moderator', function () {
+    //     return view('moderator.ordersNew');
+    // });
 });
 
 Route::get('index/{id}/hotelcard', [MainController::class, 'hotel_card'])->name('hotelcard');
@@ -85,6 +88,8 @@ Route::post('create_card_valid', [MainController::class, 'create_card_valid']);
 
 Route::patch('/editCards/{id}', [MainController::class, 'edit_hotel_card_validate']);
 
-Route::get('redact-card', function () {
-    return view('redact-card');
-});
+Route::post('/add-to-cart/{id}', [CartController::class,'addToCart'])->name('add.to.cart');
+
+Route::get('/personal-booking', [CartController::class,'showCart'])->name('show.cart');
+Route::post('/remove-from-cart/{id}', [CartController::class,'removeFromCart'])->name('remove.from.cart');
+

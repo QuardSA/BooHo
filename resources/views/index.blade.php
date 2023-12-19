@@ -49,12 +49,12 @@
                 </div>
                 <h3 class="mt-4">Дома которые точно понравятся</h3>
                 <div class="mt-3 d-flex gap-4 flex-wrap justify-content-center">
-                    @foreach ($objects as $object)
+                    {{-- @foreach ($objects->object_order as $object)
                         <div class="card shadow p-3  bg-body rounded" style="width: 18rem; height:22rem">
                             <a href="{{ route('hotelcard', ['id' => $object->id]) }}"
                                 class="text-decoration-none text-black">
-                                <img src="/img/{{ $object->photo }}" class="card-img-top" style=" height:12rem"
-                                    alt="">
+                                <img src="/storage/images/hotels/{{ $object->photo }}" class="card-img-top"
+                                    style=" height:12rem" alt="">
                                 <div class="card-body">
                                     <p class="title fs-5 ">{{ $object->title_object }}
                                     <p class="location">
@@ -65,7 +65,28 @@
                                 </div>
                             </a>
                         </div>
-                    @endforeach
+                    @endforeach --}}
+                    @if ($objects && $objects->object_order)
+                        @foreach ($objects->object_order as $object)
+                            <div class="card shadow p-3 bg-body rounded" style="width: 18rem; height: 22rem">
+                                <a href="{{ route('hotelcard', ['id' => $object->id]) }}"
+                                    class="text-decoration-none text-black">
+                                    <img src="/storage/images/hotels/{{ $object->photo }}" class="card-img-top"
+                                        style=" height:12rem" alt="">
+                                    <div class="card-body">
+                                        <p class="title fs-5 ">{{ $object->title_object }}
+                                        <p class="location">
+                                            {{ $object->country_object->title_countries }},{{ $object->address }}</p>
+                                        </p>
+                                        <p class="price fs-5 text-end">{{ $object->apartament_object->cost }} руб
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                        @endforeach
+                    @else
+                        <p>Нет данных для отображения</p>
+                    @endif
                 </div>
             </div>
 

@@ -11,7 +11,7 @@
 
     <div class="container mt-5 d-flex flex-wrap">
       <div class="personal-settings rounded-1 d-flex flex-column border py-3 px-4 mb-3" style="max-height:16.5rem;">
-        <a href="/moderator" class="text-decoration-none text-black"><img src="/img/Orders.svg" alt="" class="me-2">Запросы</a>
+        <a href="/moderator/ordersNew" class="text-decoration-none text-black"><img src="/img/Orders.svg" alt="" class="me-2">Запросы</a>
         <hr>
         <a href="/moderator/ordersDeny" class="text-decoration-none text-black"><img src="/img/Deny.svg" alt="" class="me-2">Отклонено</a>
         <hr>
@@ -22,28 +22,28 @@
       </div>
         <div class="personal-info ms-2">
             <h2>Отклонённые заявки</h2>
+            @forelse ($orders as $order)
+
+
             <table class="table table-bordered align-middle">
               <thead>
                 <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Имя</th>
-                  <th scope="col">Фамлия</th>
-                  <th scope="col">e-mail</th>
+                  <th scope="col">id</th>
                   <th scope="col">Объект</th>
                   <th scope="col">Статус заявки</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>1</td>
-                  <td>Иван</td>
-                  <td>Иванов</td>
-                  <td>alexwd@mail.ru</td>
-                  <td><a href="" class="text-decoration-none">Blue Gilroy Hotel</a></td>
+                  <td>{{$order->id}}</td>
+                  <td>{{$order->object_order->title_object}}</td>
                   <td class="text-danger fw-bold">Отклонено</td>
                 </tr>
               </tbody>
             </table>
+            @empty
+            <td>Больше нету отклонённых заявок</td>
+            @endforelse
         </div>
     </div>
 </body>

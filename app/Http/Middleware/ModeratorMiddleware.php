@@ -19,7 +19,7 @@ class ModeratorMiddleware
         if(Auth::check()){
             if(auth()->user()->role !== 2)
             {
-                return redirect()->back();
+                return redirect('')->back();
             }
         }
         else{

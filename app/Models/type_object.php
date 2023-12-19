@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\service;
 use App\Models\type_placement;
 use App\Models\apartament;
+use App\Models\order;
 use App\Models\country;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -32,5 +33,8 @@ class type_object extends Model
     public function placement_object()
     {
         return $this->belongsTo(type_placement::class, 'placement');
+    }
+    public function order_object(){
+        return $this-> hasOne(order::class, 'object', 'id');
     }
 }

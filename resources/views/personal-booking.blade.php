@@ -33,6 +33,8 @@
         <div class="personal-info ms-2">
             <h2>Моя бронь</h2>
             <div class="all-personal-objects">
+                @foreach ($cart as $item)
+
                 <div class="card mb-2" style="max-width: 40rem;">
                     <div class="row g-0">
                         <div class="col-md-5">
@@ -40,23 +42,22 @@
                         </div>
                         <div class="col-md-7">
                             <div class="card-body">
-                                <p class="card-title fs-3 fw-bold ">Blue Gilroy Hotel <img src="/img/star.svg"
-                                        class="ms-3 me-2" alt="">4,6
-                                <p class="location">Old town, Polish, Krakow</p>
+                                <p class="card-title fs-3 fw-bold ">{{ $item->title_object }}
+                                <p class="location">{{ $item->title_object }}</p>
                                 </p>
-                                <p class="truncate2 card-text">In the centre of Istanbul, located within a short
-                                    distance of Taksim Square and Taksim Metro Station, Cihangir apart hotel offers free
-                                    WiFi, air conditioning and household amenities such as a stovetop and kettle.
-                                    Private parking is available on site. The apartment features 2 bedrooms, a
-                                    flat-screen TV with satellite channels, an equipped kitchen with a dishwasher and a
-                                    fridge, a washing machine, and 1 bathroom with a shower. Towels and bed linen are
-                                    provided in the apartment.</p>
-                                <p class="fw-semibold fs-4">Премиум: 20000р</p>
-                                <a type="button" class="btn btn-outline-danger mt-2">Отменить</a>
+                                <p class="truncate2 card-text">{{ $item->description }}</p>
+                                <p class="fw-semibold fs-4">{{ $item->apartament_object->cost }} р</p>
+                                <form action="{{ route('remove.from.cart', ['id' => $item->id]) }}" method="post">
+                                    @csrf
+                                <button type="submit" class="btn btn-outline-danger mt-2">Отменить</button>
+                            </form>
+
+
                             </div>
                         </div>
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
     </div>

@@ -15,7 +15,7 @@ class OrderStatusSeed extends Seeder
     public function run(): void
     {
         $date = Carbon::now();
-        DB::table('orders_status')->insert([
+        DB::table('status')->insert([
             ['title_status'=>'Новые','created_at'=>$date,'updated_at'=>$date],
             ['title_status'=>'Принятые','created_at'=>$date,'updated_at'=>$date],
             ['title_status'=>'Отклонённые','created_at'=>$date,'updated_at'=>$date],
