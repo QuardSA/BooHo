@@ -93,3 +93,4 @@ Route::post('/add-to-cart/{id}', [CartController::class,'addToCart'])->name('add
 Route::get('/personal-booking', [CartController::class,'showCart'])->name('show.cart');
 Route::post('/remove-from-cart/{id}', [CartController::class,'removeFromCart'])->name('remove.from.cart');
 
+Route::get("/{id}/catalog_country", [MainController::class, "categories"]);

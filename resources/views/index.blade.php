@@ -39,7 +39,7 @@
                 <div class="test mt-3 d-flex gap-2 flex-wrap justify-content-center">
                     @foreach ($countries as $country)
                         <div class="country position-relative">
-                            <a href="/catalog">
+                            <a href="/{{$country->id}}/catalog_country">
                                 <img src="/img/{{ $country->photo }}" alt="">
                                 <div class="country-name fs-5 position-absolute text-white fw-bold">
                                     {{ $country->title_countries }}</div>

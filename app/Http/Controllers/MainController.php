@@ -19,12 +19,22 @@ use Illuminate\Support\Facades\Log;
 class MainController extends Controller
 {
     public function country()
-{
-    $countries = Country::take(4)->get();
+    {
+        $countries = Country::take(4)->get();
+        $objects = order::where('status', 2)->with('object_order')->first();
 
-    $objects = order::where('status', 3)->with('object_order')->first();
-    return view('index', ['countries' => $countries, 'objects' => $objects]);
-}
+        if (!$objects) {
+            $objects = null; // или укажите какое-то значение по умолчанию
+        }
+
+        return view('index', ['countries' => $countries, 'objects' => $objects]);
+    }
+    public function categories($id)
+    {
+        $objects = type_object::where("country" , $id)->get();
+        $Allcategories=country::all();
+        return view('catalog_country', ['country' =>  $Allcategories, 'object' =>    $objects ]);
+    }
     public function hotel_card($id)
     {
         $hotel_card = type_object::find($id);
