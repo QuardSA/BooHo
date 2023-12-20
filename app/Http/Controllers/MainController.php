@@ -18,13 +18,14 @@ use Illuminate\Support\Facades\Log;
 
 class MainController extends Controller
 {
+
     public function country()
     {
         $countries = Country::take(4)->get();
         $objects = order::where('status', 2)->with('object_order')->first();
 
         if (!$objects) {
-            $objects = null; // или укажите какое-то значение по умолчанию
+            $objects = null;
         }
 
         return view('index', ['countries' => $countries, 'objects' => $objects]);

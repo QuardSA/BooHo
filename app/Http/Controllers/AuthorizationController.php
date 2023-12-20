@@ -76,7 +76,7 @@ class AuthorizationController extends Controller
                 return redirect('/admin/index')->with('success', 'Вы вошли как Администратор');
             }
             elseif(Auth::user()->role == 2){
-                return redirect('/moderator')->with('success', 'Добро пожаловать Модератор');
+                return redirect('/moderator/ordersNew')->with('success', 'Добро пожаловать Модератор');
             } else {
                 return redirect('/personal-data')->with('success', 'Добро пожаловать');
             }
@@ -126,7 +126,7 @@ class AuthorizationController extends Controller
             'role' => "2",
         ]);
         if ($userCreate) {
-            return redirect('/admin')->with('success', 'Вы добавили модератора');
+            return redirect('/admin/index')->with('success', 'Вы добавили модератора');
         }else{
             return redirect('/admin/moderator-create')->with('success', 'Ошибка добавления');
         }

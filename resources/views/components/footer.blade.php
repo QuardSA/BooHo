@@ -22,7 +22,7 @@
         <div class="col mb-3 ">
             <h5>Компания</h5>
             <ul class="nav flex-column">
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">О компании</a></li>
+                <li class="nav-item mb-2"><a href="#" class="/sitemap" class="decoration-none text-dark">Карта сайта</a></li>
             </ul>
         </div>
 

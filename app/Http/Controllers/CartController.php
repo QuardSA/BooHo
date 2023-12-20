@@ -12,10 +12,10 @@ class CartController extends Controller
         $object = type_object::find($id);
 
         if (!$object) {
-            abort(404); // Обработка случая, если объект не найден
+            abort(404);
         }
 
-        // Добавьте объект в корзину (например, используя сеансы)
+
         $cart = $request->session()->get('cart', []);
         $cart[] = $object;
         $request->session()->put('cart', $cart);
